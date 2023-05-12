@@ -144,7 +144,10 @@
                 "parameters": {
                     "$connections": {
                         "value": {
-                            "openaigpt4ip": {                                
+                            "openaigpt4ip": {
+                                "connectionId": "",
+                                "connectionName": "openaigpt4ip",
+                                "id": ""
                             }
                         }
                     }
