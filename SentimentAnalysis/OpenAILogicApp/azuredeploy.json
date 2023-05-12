@@ -145,9 +145,9 @@
                     "$connections": {
                         "value": {
                             "openaigpt4ip": {
-                                "connectionId": "XXX",
+                                "connectionId": "/subscriptions/71383a09-5536-44eb-8041-03b2a7ef9067/resourceGroups/OpenAILogicApp/providers/Microsoft.Web/connections/openaigpt4ip",
                                 "connectionName": "openaigpt4ip",
-                                "id": "XXXX"
+                                "id": "/subscriptions/71383a09-5536-44eb-8041-03b2a7ef9067/providers/Microsoft.Web/locations/eastus/managedApis/openaigpt4ip"
                             }
                         }
                     }
