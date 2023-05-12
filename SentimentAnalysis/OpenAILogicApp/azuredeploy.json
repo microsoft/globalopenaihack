@@ -47,7 +47,7 @@
                                 },
                                 "host": {
                                     "connection": {
-                                        "name": "@parameters('$connections')['openaigpt4ip_1']['connectionId']"
+                                        "name": ""
                                     }
                                 },
                                 "method": "post",
@@ -141,16 +141,7 @@
                     },
                     "outputs": {}
                 },
-                "parameters": {
-                    "$connections": {
-                        "value": {
-                            "openaigpt4ip_1": {
-                                "connectionId": "/subscriptions/71383a09-5536-44eb-8041-03b2a7ef9067/resourceGroups/OpenAI/providers/Microsoft.Web/connections/openaigpt4ip-1",
-                                "connectionName": "openaigpt4ip-1",
-                                "id": "/subscriptions/71383a09-5536-44eb-8041-03b2a7ef9067/providers/Microsoft.Web/locations/eastus2/managedApis/openaigpt4ip"
-                            }
-                        }
-                    }
+                "parameters": {                    
                 }
             }
         }
