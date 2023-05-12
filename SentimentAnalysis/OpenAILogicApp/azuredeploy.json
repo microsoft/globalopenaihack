@@ -7,8 +7,8 @@
         {
             "type": "Microsoft.Logic/workflows",
             "apiVersion": "2017-07-01",
-            "name": "openaila",
-            "location": "eastus2",
+            "name": "openailogicapp1",
+            "location": "eastus",
             "properties": {
                 "state": "Enabled",
                 "definition": {
@@ -37,7 +37,7 @@
                         }
                     },
                     "actions": {
-                        "OpenAI_Completion": {
+                        "Create_completion": {
                             "runAfter": {},
                             "type": "ApiConnection",
                             "inputs": {
@@ -47,7 +47,7 @@
                                 },
                                 "host": {
                                     "connection": {
-                                        "name": ""
+                                        "name": "@parameters('$connections')['openaigpt4ip']['connectionId']"
                                     }
                                 },
                                 "method": "post",
@@ -56,13 +56,13 @@
                         },
                         "Parse_JSON": {
                             "runAfter": {
-                                "OpenAI_Completion": [
+                                "Create_completion": [
                                     "Succeeded"
                                 ]
                             },
                             "type": "ParseJson",
                             "inputs": {
-                                "content": "@body('OpenAI_Completion')",
+                                "content": "@body('Create_completion')",
                                 "schema": {
                                     "properties": {
                                         "choices": {
@@ -141,7 +141,13 @@
                     },
                     "outputs": {}
                 },
-                "parameters": {                    
+                "parameters": {
+                    "$connections": {
+                        "value": {
+                            "openaigpt4ip": {                                
+                            }
+                        }
+                    }
                 }
             }
         }
