@@ -1,13 +1,22 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {},
+    "parameters": {
+        "workflows_openailogicapp1_name": {
+            "defaultValue": "OpenAI_Logic_App",
+            "type": "String"
+        },
+        "connections_openaigpt4ip_externalid": {
+            "defaultValue": "/subscriptions/XXX/resourceGroups/OpenAILogicApp/providers/Microsoft.Web/connections/openaigpt4ip",
+            "type": "String"
+        }
+    },
     "variables": {},
     "resources": [
         {
             "type": "Microsoft.Logic/workflows",
             "apiVersion": "2017-07-01",
-            "name": "openailogicapp1",
+            "name": "[parameters('workflows_openailogicapp1_name')]",
             "location": "eastus",
             "properties": {
                 "state": "Enabled",
@@ -145,9 +154,9 @@
                     "$connections": {
                         "value": {
                             "openaigpt4ip": {
-                                "connectionId": "/subscriptions/71383a09-5536-44eb-8041-03b2a7ef9067/resourceGroups/OpenAILogicApp/providers/Microsoft.Web/connections/openaigpt4ip",
+                                "connectionId": "[parameters('connections_openaigpt4ip_externalid')]",
                                 "connectionName": "openaigpt4ip",
-                                "id": "/subscriptions/71383a09-5536-44eb-8041-03b2a7ef9067/providers/Microsoft.Web/locations/eastus/managedApis/openaigpt4ip"
+                                "id": "/subscriptions/XXXX/providers/Microsoft.Web/locations/eastus/managedApis/openaigpt4ip"
                             }
                         }
                     }
