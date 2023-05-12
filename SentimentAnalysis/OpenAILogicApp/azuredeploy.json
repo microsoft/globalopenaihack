@@ -1,18 +1,13 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
-        "workflows_openaila_name": {
-            "defaultValue": "OpenAIdemo",
-            "type": "string"
-        }
-    },
+    "parameters": {},
     "variables": {},
     "resources": [
         {
             "type": "Microsoft.Logic/workflows",
             "apiVersion": "2017-07-01",
-            "name": "[parameters('workflows_openaila_name')]",
+            "name": "openaila",
             "location": "eastus2",
             "properties": {
                 "state": "Enabled",
@@ -42,7 +37,7 @@
                         }
                     },
                     "actions": {
-                        "Create_completion": {
+                        "OpenAI_Completion": {
                             "runAfter": {},
                             "type": "ApiConnection",
                             "inputs": {
@@ -61,13 +56,13 @@
                         },
                         "Parse_JSON": {
                             "runAfter": {
-                                "Create_completion": [
+                                "OpenAI_Completion": [
                                     "Succeeded"
                                 ]
                             },
                             "type": "ParseJson",
                             "inputs": {
-                                "content": "@body('Create_completion')",
+                                "content": "@body('OpenAI_Completion')",
                                 "schema": {
                                     "properties": {
                                         "choices": {
@@ -146,7 +141,16 @@
                     },
                     "outputs": {}
                 },
-                "parameters": {                    
+                "parameters": {
+                    "$connections": {
+                        "value": {
+                            "openaigpt4ip_1": {
+                                "connectionId": "/subscriptions/71383a09-5536-44eb-8041-03b2a7ef9067/resourceGroups/OpenAI/providers/Microsoft.Web/connections/openaigpt4ip-1",
+                                "connectionName": "openaigpt4ip-1",
+                                "id": "/subscriptions/71383a09-5536-44eb-8041-03b2a7ef9067/providers/Microsoft.Web/locations/eastus2/managedApis/openaigpt4ip"
+                            }
+                        }
+                    }
                 }
             }
         }
