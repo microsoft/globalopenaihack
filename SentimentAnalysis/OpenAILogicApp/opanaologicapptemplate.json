@@ -1,0 +1,154 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workflows_openaila_name": {
+            "defaultValue": "OpenAIdemo",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Logic/workflows",
+            "apiVersion": "2017-07-01",
+            "name": "[parameters('workflows_openaila_name')]",
+            "location": "eastus2",
+            "properties": {
+                "state": "Enabled",
+                "definition": {
+                    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {
+                        "$connections": {
+                            "defaultValue": {},
+                            "type": "Object"
+                        }
+                    },
+                    "triggers": {
+                        "manual": {
+                            "type": "Request",
+                            "kind": "Http",
+                            "inputs": {
+                                "schema": {
+                                    "properties": {
+                                        "prompt": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "actions": {
+                        "Create_completion": {
+                            "runAfter": {},
+                            "type": "ApiConnection",
+                            "inputs": {
+                                "body": {
+                                    "model": "text-davinci-003",
+                                    "prompt": "Classify the sentiment in the text and respond with the value Positive, Neutral or Negative. ---@{triggerBody()?['prompt']}"
+                                },
+                                "host": {
+                                    "connection": {
+                                        "name": "@parameters('$connections')['openaigpt4ip_1']['connectionId']"
+                                    }
+                                },
+                                "method": "post",
+                                "path": "/v1/completions"
+                            }
+                        },
+                        "Parse_JSON": {
+                            "runAfter": {
+                                "Create_completion": [
+                                    "Succeeded"
+                                ]
+                            },
+                            "type": "ParseJson",
+                            "inputs": {
+                                "content": "@body('Create_completion')",
+                                "schema": {
+                                    "properties": {
+                                        "choices": {
+                                            "items": {
+                                                "properties": {
+                                                    "finish_reason": {
+                                                        "type": "string"
+                                                    },
+                                                    "index": {
+                                                        "type": "integer"
+                                                    },
+                                                    "logprobs": {},
+                                                    "text": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "text",
+                                                    "index",
+                                                    "logprobs",
+                                                    "finish_reason"
+                                                ],
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "created": {
+                                            "type": "integer"
+                                        },
+                                        "first_completion": {
+                                            "type": "string"
+                                        },
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "model": {
+                                            "type": "string"
+                                        },
+                                        "object": {
+                                            "type": "string"
+                                        },
+                                        "usage": {
+                                            "properties": {
+                                                "completion_tokens": {
+                                                    "type": "integer"
+                                                },
+                                                "prompt_tokens": {
+                                                    "type": "integer"
+                                                },
+                                                "total_tokens": {
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        },
+                        "Response": {
+                            "runAfter": {
+                                "Parse_JSON": [
+                                    "Succeeded"
+                                ]
+                            },
+                            "type": "Response",
+                            "kind": "Http",
+                            "inputs": {
+                                "body": {
+                                    "response": "@trim(body('Parse_JSON')?['choices'][0]['text'])"
+                                },
+                                "statusCode": 200
+                            }
+                        }
+                    },
+                    "outputs": {}
+                },
+                "parameters": {                    
+                }
+            }
+        }
+    ]
+}
