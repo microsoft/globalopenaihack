@@ -1,4 +1,2 @@
 
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https://raw.githubusercontent.com/microsoft/globalopenaihack/sentiment/SentimentAnalysis/OpenAILogicApp/opanaologicapptemplate.json" target="_blank">
-    <img src="https://aka.ms/deploytoazurebutton"/>
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https%3A%2F%2Fportal.azure.com%2F%23create%2FMicrosoft.Template%2Furi%2Fhttps%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fglobalopenaihack%2Fsentiment%2FSentimentAnalysis%2FOpenAILogicApp%2Fopanaologicapptemplate.json)

@@ -4,7 +4,7 @@
     "parameters": {
         "workflows_openaila_name": {
             "defaultValue": "OpenAIdemo",
-            "type": "String"
+            "type": "string"
         }
     },
     "variables": {},
