@@ -7,7 +7,7 @@
         {
             "type": "Microsoft.Logic/workflows",
             "apiVersion": "2017-07-01",
-            "name": "openaidlasentiment",
+            "name": "openailogicappdemo",
             "location": "eastus2",
             "properties": {
                 "state": "Enabled",
