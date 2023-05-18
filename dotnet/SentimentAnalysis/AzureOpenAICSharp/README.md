@@ -1,6 +1,6 @@
 # Azure OpenAI Sentiment Analysis
 
-This code is an example of how to use the Azure.AI.OpenAI ckient library to classify the sentiment in a given text using the Azure OpenAI service.
+This code is an example of how to use the Azure.AI.OpenAI client library to classify the sentiment in a given text using the Azure OpenAI service.
 
  [Azure.AI.OpenAI Source code](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.OpenAI)
 
