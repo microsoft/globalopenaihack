@@ -38,11 +38,15 @@ Replace the AzureOpenAI Studio deployment model name with the name of your own d
 ```C#
 Program.cs
 
- Response<Completions> completionsResponse = client.GetCompletions("AzureOpenAI Studio deployment model name", completionsOptions);
+ string deploymentName = "AzureOpenAI Studio deployment model name";
 ```
 
-Run the code.
-
+Run the code.  
+```dotnetcli
+dotnet run
+```
+![azure portal open ai key](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/openaicsharpoutput.jpg)  
+  
 
 Code Explanation
 
