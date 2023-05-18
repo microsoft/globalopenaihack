@@ -18,21 +18,20 @@ Clone this repository to your local machine.
 Open the solution in your developer environment ([Visual Studio Code](https://code.visualstudio.com/), Visual Studio, etc.).
 
 Replace the key variable in Program.cs with your own value from the Open AI portal.  
-
-To find the API Key sign into the portal, and click the user profile in the top right corner  
-![open ai dropdown](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/sentimentanalysis/openaidropdown.jpg)  
-
-Create and store the newly created key for later.  
-![open ai dropdown](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/sentimentanalysis/openaiSecret.jpg) 
-
- 
-
 ```C#
 Program.cs
 
 string apiUrl = "https://api.openai.com/v1/completions";
 string apiKey = "Your-OpenAI-API-Key";
 ```  
+
+To find the API Key sign into the portal, and click the user profile in the top right corner  
+![open ai dropdown](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/sentimentanalysis/openaidropdown.jpg)  
+
+Create and store the new key, you will not be able to retieve the value once the create dialog is closed. 
+![open ai dropdown](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/sentimentanalysis/openaiSecret.jpg)  
+
+
 Run the code.  
 ```dotnetcli
 dotnet run
