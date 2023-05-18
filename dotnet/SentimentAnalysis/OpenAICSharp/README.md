@@ -9,6 +9,7 @@ This code is an example of how to use OpenAI's APIs to classify the sentiment in
 * An [OpenAI account](https://openai.com/)  
 [Video on how to open an account](https://www.youtube.com/)
 * API key from the [OpenAI portal](https://platform.openai.com/)  
+
 To find the API Key sign into the portal, and click the user profile in the top right corner  
 ![open ai dropdown](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/sentimentanalysis/openaidropdown.jpg)  
 
