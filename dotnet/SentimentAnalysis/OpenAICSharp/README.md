@@ -1,6 +1,6 @@
 # OpenAI Sentiment Analysis
 
-This code is an example of how to use OpenAI's Comletion API to classify the sentiment in a given text using a simple HTTP request.  
+This code is an example of how to use OpenAI's Completion API to classify the sentiment in a given text using a simple HTTP request.  
 [OpenAI API Reference](https://platform.openai.com/docs/api-reference/completions)  
 
 ## Getting Started
