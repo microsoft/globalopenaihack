@@ -22,7 +22,7 @@ Open the solution in Visual Studio or Visual Studio Code.
 
 Replace the endpoint and key variables in Program.cs with your own values from the Azure Open AI portal.  
 
-![azure portal open ai key](/repository/assets/openaikeys.jpg)  
+![azure portal open ai key](openaikeys.jpg)  
 
 ```C#
 Program.cs
@@ -33,7 +33,7 @@ Program.cs
 
 Replace the AzureOpenAI Studio deployment model name with the name of your own deployment model.
 
-![azure portal open ai key](/repository/assets/deployments.jpg)  
+![azure portal open ai key](deployments.jpg)  
 
 ```C#
 Program.cs
