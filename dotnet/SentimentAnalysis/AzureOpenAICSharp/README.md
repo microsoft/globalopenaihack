@@ -18,7 +18,7 @@ This code is an example of how to use the Azure.AI.OpenAI ckient library to clas
 
 Clone this repository to your local machine.
 
-Open the solution in Visual Studio or Visual Studio Code.
+Open the solution in your developer environment ([Visual Studio Code](https://code.visualstudio.com/), Visual Studio, etc.).
 
 Replace the endpoint and key variables in Program.cs with your own values from the Azure Open AI portal.  
 
@@ -48,21 +48,44 @@ dotnet run
 ![azure portal open ai key](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/openaicsharpoutput.jpg)  
   
 
-Code Explanation
+## Code Explanation
 
-The code first sets the endpoint and key for the Azure OpenAI service. It then creates an instance of the OpenAIClient using the endpoint and key.
+First, set the endpoint and key for the Azure OpenAI service and the Azure OpenAI Studio model name.  
+```C#
+using Azure;
+using Azure.AI.OpenAI;
+string endpoint = "https://your.azure.openai.endpoint/";
+string key = "api-key-found-in-azure-openai";
+string deploymentName = "AzureOpenAI Studio deployment model name";
+```  
+Next, create an instance of the OpenAIClient using the endpoint and key.  
+```C#
+OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(key))
+```
 
+Then, create a variable of the CompletionsOptions class and set the prompt to classify the sentiment in a given text.
+```C#
+var completionsOptions = new CompletionsOptions()
+{   Prompts = { @$"Classify the sentiment in this text.
+     ----
+     Text
+     I don't like Pizza.
+    ----
+   Is the text Positive, Neutral or Negative?"},
+ };
+```
 
-Next, it creates an instance of the CompletionsOptions class and sets the prompt to classify the sentiment in a given text.
+Finally, call the GetCompletions method of the OpenAIClient instance, passing in the name of the AzureOpenAI Studio deployment model and the completionsOptions variable.  
+```C#
+Response<Completions> completionsResponse = client.GetCompletions(deploymentName, completionsOptions);
+```  
+The response is then printed to the console.  
+```C#
+string completion = completionsResponse.Value.Choices[0].Text;
+Console.WriteLine(completion);
+```  
+![azure portal open ai key](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/openaicsharpoutput.jpg)  
+  
+  
 
-
-Finally, it calls the GetCompletions method of the OpenAIClient instance, passing in the name of the AzureOpenAI Studio deployment model and the CompletionsOptions instance. The response is then printed to the console.
-
-
-This code can be used as a starting point for building an application that uses the Azure OpenAI service to classify sentiment in text.
-
-
-License
-
-This code is licensed under the MIT License. See the LICENSE file for details.
 
