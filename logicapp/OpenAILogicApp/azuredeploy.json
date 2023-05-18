@@ -284,7 +284,7 @@
                                     {
                                         "name": "AzureOpenAIURL",
                                         "type": "string",
-                                        "value": "https://your.azure.openai.endpoint/"
+                                        "value": "https://YourAzureOpenAIEndpoint.openai.azure.com/openai/deployments/YourOpenAiDeploymentName/completions?api-version=2023-03-15-preview"
                                     }
                                 ]
                             }
