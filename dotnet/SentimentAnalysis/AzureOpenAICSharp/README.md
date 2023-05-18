@@ -9,7 +9,8 @@ This code is an example of how to use the Azure.AI.OpenAI client library to clas
 ### Prerequisites
 
 * An [Azure subscription](https://azure.microsoft.com/free/)
-* Azure OpenAI subscription.  Access to the Azure OpenAI portal is by application only.  Apply for access with this [form](https://aka.ms/oai/access?azure-portal=true)  
+* Azure OpenAI subscription.  Access to the Azure OpenAI portal is by application only.  
+Apply for access with this [form](https://aka.ms/oai/access?azure-portal=true)  
 * API key from the [Azure OpenAI portal](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/how-to/create-resource?pivots=web-portal#create-a-resource)
 * Deployed model to reference in [Azure OpenAI Studio](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model)
 
