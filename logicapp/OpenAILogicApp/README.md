@@ -30,4 +30,4 @@ Deploy the Logic App to your Azure subscription.
 
 
 1. Set the subscription, resource group, region and name the Logic App.  
-![Step on Logic App](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/sentimentanalysis/step1.jpg)
+![Step on Logic App](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/logicapps/step1.jpg)
