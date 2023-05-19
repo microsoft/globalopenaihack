@@ -58,5 +58,8 @@ Create and store the new key, you will not be able to retieve the value once the
     "response": "Negative",
     "source": "OpenAI"
     }
-    ```
-
+    ```  
+### Azure OpenAI
+2. Add the AzureOpenAI endpoint and AzureOpenAI Key to the initialize steps  
+![Step on Logic App](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/logicapps/step2azoai.jpg)  
+![azure portal open ai key](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/sentimentanalysis/openaikeys.jpg)  
