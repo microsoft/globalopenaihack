@@ -9,6 +9,7 @@ This example demonstrates how to call an Azure Logic App using OpenAI's Completi
 ### Prerequisites
 
 * An [Azure subscription](https://azure.microsoft.com/free/)  
+* A http querying tool like Postman or curl
 
 To use this example, you will need either an OpenAI account or an Azure OpenAI account  
 **OpenAI**
@@ -32,12 +33,30 @@ Deploy the Logic App to your Azure subscription.
 1. Set the subscription, resource group, region and name the Logic App.  
 ![Step on Logic App](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/logicapps/step1.jpg)  
 
-**OpenAI**
-2. Add the OpenAI Key to the Initialize OpenAIKey step. 
+### OpenAI  
+2. Add the OpenAI Key to the Initialize OpenAIKey step.  
 ![Step on Logic App](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/logicapps/step2oai.jpg)  
 To find the API Key sign into the portal, and click the user profile in the top right corner  
 ![open ai dropdown](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/sentimentanalysis/openaidropdown.jpg)  
-
 Create and store the new key, you will not be able to retieve the value once the create dialog is closed. 
-![open ai dropdown](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/sentimentanalysis/openaiSecret.jpg)  
+![open ai key](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/sentimentanalysis/openaiSecret.jpg)  
+
+3. Using a tool like Postman, post a query to the url found in the http trigger   
+    The body of the request contains a prompt and a type.  The type is set to empty, because this a flow control value for the sample application.  
+    ```JSON
+    {
+        "prompt" : "I don't like pizza!",
+        "type" : ""
+    }
+    ```
+    ![Http trigger](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/logicapps/step3oai.jpg)  
+    ![OpenAI Postman](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/logicapps/step3oaipostman.jpg)  
+    
+    The response sentiment and source value of OpenAI identifies the sample flow condition selected.  
+    ```JSON
+    {
+    "response": "Negative",
+    "source": "OpenAI"
+    }
+    ```
 
