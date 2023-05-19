@@ -14,7 +14,7 @@ This example demonstrates how to call an Azure Logic App using OpenAI's Completi
 To use this example, you will need either an OpenAI account or an Azure OpenAI account  
 **OpenAI**
 * An [OpenAI account](https://openai.com/)  
-[Video on how to open an account](https://www.youtube.com/)
+[Video on how to open an account](https://www.youtube.com/watch?v=zJSYMWlCcPY)
 * API key from the [OpenAI portal](https://platform.openai.com/)  
 
 **Azure OpenAI**
