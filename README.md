@@ -2,7 +2,7 @@
 
 This is a repository to aggregate content to be used if you are running a hackathon event focused on AI solutions.
 
-If you aren't finding what you are looking for in this repository, it might be because we pulled from one of these [Interesting Links](/InterestingLinks.md).
+If you aren't finding what you are looking for in this repository, it might be because we pulled from one of these [Interesting Links](InterestingLinks.md).
 
 ## Contributing
 
