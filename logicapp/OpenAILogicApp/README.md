@@ -30,4 +30,14 @@ Deploy the Logic App to your Azure subscription.
 
 
 1. Set the subscription, resource group, region and name the Logic App.  
-![Step on Logic App](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/logicapps/step1.jpg)
+![Step on Logic App](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/logicapps/step1.jpg)  
+
+**OpenAI**
+2. Add the OpenAI Key to the Initialize OpenAIKey step. 
+![Step on Logic App](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/logicapps/step2oai.jpg)  
+To find the API Key sign into the portal, and click the user profile in the top right corner  
+![open ai dropdown](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/sentimentanalysis/openaidropdown.jpg)  
+
+Create and store the new key, you will not be able to retieve the value once the create dialog is closed. 
+![open ai dropdown](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/sentimentanalysis/openaiSecret.jpg)  
+
