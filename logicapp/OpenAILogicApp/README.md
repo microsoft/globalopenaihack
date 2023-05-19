@@ -31,15 +31,15 @@ Deploy the Logic App to your Azure subscription.
 
 
 1. Set the subscription, resource group, region and name the Logic App.  
-![Step on Logic App](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/logicapps/step1.jpg)  
+![Step on Logic App](../../assets/logicapps/step1.jpg)  
 
 ### OpenAI  
 2. Add the OpenAI Key to the Initialize OpenAIKey step.  
-![Step on Logic App](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/logicapps/step2oai.jpg)  
+![Step on Logic App](../../assets/logicapps/step2oai.jpg)  
 To find the API Key sign into the portal, and click the user profile in the top right corner  
-![open ai dropdown](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/sentimentanalysis/openaidropdown.jpg)  
+![open ai dropdown](../../assets/sentimentanalysis/openaidropdown.jpg)  
 Create and store the new key, you will not be able to retieve the value once the create dialog is closed. 
-![open ai key](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/sentimentanalysis/openaiSecret.jpg)  
+![open ai key](../../assets/sentimentanalysis/openaiSecret.jpg)  
 
 3. Using a tool like Postman, post a query to the url found in the http trigger   
     The body of the request contains a prompt and a type.  The type is set to empty, because this a flow control value for the sample application.  
@@ -49,8 +49,8 @@ Create and store the new key, you will not be able to retieve the value once the
         "type" : ""
     }
     ```
-    ![Http trigger](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/logicapps/step3oai.jpg)  
-    ![OpenAI Postman](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/logicapps/step3oaipostman.jpg)  
+    ![Http trigger](../../assets/logicapps/step3oai.jpg)  
+    ![OpenAI Postman](../../assets/logicapps/step3oaipostman.jpg)  
     
     The response sentiment and source value of OpenAI identifies the sample flow condition selected.  
     ```JSON
@@ -61,9 +61,9 @@ Create and store the new key, you will not be able to retieve the value once the
     ```  
 ### Azure OpenAI
 2. Add the Azure OpenAI endpoint, Azure OpenAI Key and The Azure OpenAI Studio deployment model name to the initialize steps  
-![Step on Logic App](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/logicapps/step2azoai.jpg)  
-![azure portal open ai key](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/sentimentanalysis/openaikeys.jpg)  
-![azure portal open ai deployment](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/sentimentanalysis/deployments.jpg)  
+![Step on Logic App](../../assets/logicapps/step2azoai.jpg)  
+![azure portal open ai key](../../assets/sentimentanalysis/openaikeys.jpg)  
+![azure portal open ai deployment](../../assets/sentimentanalysis/deployments.jpg)  
 
 3. Using a tool like Postman, post a query to the url found in the http trigger   
     The body of the request contains a prompt and a type.  The type is set to azure to direct the conditional flow to call the Azure OpenAI endpoint.  
@@ -73,6 +73,6 @@ Create and store the new key, you will not be able to retieve the value once the
         "type" : "azure"
     }
     ```  
-    ![Http trigger](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/logicapps/step3oai.jpg)  
-    ![OpenAI Postman](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/logicapps/step3azureoaipostman.jpg)
+    ![Http trigger](../../assets/logicapps/step3oai.jpg)  
+    ![OpenAI Postman](../../assets/logicapps/step3azureoaipostman.jpg)
     
