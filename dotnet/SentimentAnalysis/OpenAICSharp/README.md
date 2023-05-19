@@ -8,7 +8,7 @@ This code is an example of how to use OpenAI's Completion API to classify the se
 ### Prerequisites
 
 * An [OpenAI account](https://openai.com/)  
-[Video on how to open an account](https://www.youtube.com/)
+[Video on how to open an account](https://www.youtube.com/watch?v=zJSYMWlCcPY)
 * API key from the [OpenAI portal](https://platform.openai.com/)  
 
 ## Usage
