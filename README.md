@@ -1,14 +1,8 @@
 # Project
 
-> TODO: 
-> TODO:
+This is a repository to aggregate content to be used if you are running a hackathon event focused on AI solutions.
 
-As the maintainer of this project, please make a few updates:
-
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+If you aren't finding what you are looking for in this repository, it might be because we pulled from one of these [Interesting Links](/InterestingLinks.md).
 
 ## Contributing
 
