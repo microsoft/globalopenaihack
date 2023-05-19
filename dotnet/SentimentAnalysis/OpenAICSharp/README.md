@@ -26,17 +26,17 @@ string apiKey = "Your-OpenAI-API-Key";
 ```  
 
 To find the API Key sign into the portal, and click the user profile in the top right corner  
-![open ai dropdown](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/sentimentanalysis/openaidropdown.jpg)  
+![open ai dropdown](../../../assets/sentimentanalysis/openaidropdown.jpg)  
 
 Create and store the new key, you will not be able to retieve the value once the create dialog is closed. 
-![open ai dropdown](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/sentimentanalysis/openaiSecret.jpg)  
+![open ai dropdown](../../../assets/sentimentanalysis/openaiSecret.jpg)  
 
 
 Run the code.  
 ```dotnetcli
 dotnet run
 ```
-![azure portal open ai key](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/sentimentanalysis/openaioutput.jpg)  
+![azure portal open ai key](../../../assets/sentimentanalysis/openaioutput.jpg)  
   
 
 ## Code Explanation
@@ -84,7 +84,7 @@ Console.WriteLine(result!.choices[0].text);;
 ```  
 The response is then printed to the console.  
 
-![azure portal open ai key](https://github.com/microsoft/globalopenaihack/blob/sentiment/assets/sentimentanalysis/openaioutput.jpg)  
+![azure portal open ai key](../../../assets/sentimentanalysis/openaioutput.jpg)  
   
   
 
