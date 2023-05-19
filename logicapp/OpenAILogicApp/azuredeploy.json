@@ -70,7 +70,7 @@
                                             "api-key": "@variables('AzureOpenAIKey')"
                                         },
                                         "method": "POST",
-                                        "uri": "@variables('AzureOpenAIURL')"
+                                        "uri": "https://@{variables('AzureOpenAIURL')}/openai/deployments/@{variables('AzureOpenAIDeployment')}/completions?api-version=2023-03-15-preview"
                                     }
                                 },
                                 "ParseAzureOpenAI": {
@@ -256,13 +256,30 @@
                                 "and": [
                                     {
                                         "equals": [
-                                            "@toUpper(triggerBody()?['type'])",
-                                            "AZURE"
+                                            "@toLower(triggerBody()?['type'])",
+                                            "azure"
                                         ]
                                     }
                                 ]
                             },
                             "type": "If"
+                        },
+                        "Initialize_AzureOpenAIDeployment": {
+                            "runAfter": {
+                                "Initialize_AzureOpenAIKey": [
+                                    "Succeeded"
+                                ]
+                            },
+                            "type": "InitializeVariable",
+                            "inputs": {
+                                "variables": [
+                                    {
+                                        "name": "AzureOpenAIDeployment",
+                                        "type": "string",
+                                        "value": "Azure OpenAI Studio deployment name"
+                                    }
+                                ]
+                            }
                         },
                         "Initialize_AzureOpenAIKey": {
                             "runAfter": {
@@ -276,7 +293,7 @@
                                     {
                                         "name": "AzureOpenAIKey",
                                         "type": "string",
-                                        "value": "api-key-found-in-azure-openai"
+                                        "value": "API Key found in Azure OpenAI Portal"
                                     }
                                 ]
                             }
@@ -289,14 +306,14 @@
                                     {
                                         "name": "AzureOpenAIURL",
                                         "type": "string",
-                                        "value": "https://YourAzureOpenAIEndpoint.openai.azure.com/openai/deployments/YourOpenAiDeploymentName/completions?api-version=2023-03-15-preview"
+                                        "value": "YourAzureOpenAIEndpoint.openai.azure.com"
                                     }
                                 ]
                             }
                         },
                         "Initialize_OpenAIKey": {
                             "runAfter": {
-                                "Initialize_AzureOpenAIKey": [
+                                "Initialize_AzureOpenAIDeployment": [
                                     "Succeeded"
                                 ]
                             },
