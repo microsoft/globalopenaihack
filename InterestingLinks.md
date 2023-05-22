@@ -1,7 +1,9 @@
 #Start here:
 [Azure OpenAI Service](https://azure.microsoft.com/en-us/products/cognitive-services/openai-service/?ef_id=_k_a821929ce249149b1848f6fb62a6683b_k_&OCID=AIDcmm5edswduu_SEM__k_a821929ce249149b1848f6fb62a6683b_k_&msclkid=a821929ce249149b1848f6fb62a6683b)
 
-[Azure OpenAI Service FAQ](https://azure.microsoft.com/en-us/products/cognitive-services/openai-service/?ef_id=_k_a821929ce249149b1848f6fb62a6683b_k_&OCID=AIDcmm5edswduu_SEM__k_a821929ce249149b1848f6fb62a6683b_k_&msclkid=a821929ce249149b1848f6fb62a6683b#faq) (incl requesting access)
+[Azure OpenAI Service FAQ](https://azure.microsoft.com/en-us/products/cognitive-services/openai-service/?ef_id=_k_a821929ce249149b1848f6fb62a6683b_k_&OCID=AIDcmm5edswduu_SEM__k_a821929ce249149b1848f6fb62a6683b_k_&msclkid=a821929ce249149b1848f6fb62a6683b#faq)
+
+[Requesting access to Azure OpenAI](https://aka.ms/oai/access)
 
 [Responsible AI](https://www.microsoft.com/en-us/ai/responsible-ai?activetab=pivot1%3aprimaryr6)
 
