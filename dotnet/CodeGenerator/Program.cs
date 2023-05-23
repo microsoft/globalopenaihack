@@ -50,7 +50,7 @@ static async Task<string> CodeCompletion(IConfigurationRoot config, OpenAIClient
     Completions completions = completionsResponse.Value;
 
     string responseMessage = string.IsNullOrEmpty(completions.Choices[0].Text)
-        ? "Function to generate code has been executed successfully but nocode has been genrated, please try again!!!"
+        ? "Function to generate code has been executed successfully but no code has been generated, please try again!!!"
         : completions.Choices[0].Text;
 
     return responseMessage;
