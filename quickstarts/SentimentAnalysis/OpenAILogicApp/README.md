@@ -26,7 +26,7 @@ Apply for access with this [form](https://aka.ms/oai/access?azure-portal=true)
 ## Usage  
 
 Deploy the Logic App to your Azure subscription.  
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fglobalopenaihack%2Fmain%2Flogicapp%2FOpenAILogicApp%2Fazuredeploy.json)  
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fglobalopenaihack%2Fmain%2Fquickstarts%2FSentimentAnalysis%2FOpenAILogicApp%2Fazuredeploy.json)  
 
 
 1. Set the subscription, resource group, region and name the Logic App.  
