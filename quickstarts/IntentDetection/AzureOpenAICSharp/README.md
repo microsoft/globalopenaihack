@@ -46,7 +46,7 @@ Run the code.
 ```dotnetcli
 dotnet run
 ```
-![azure portal open ai key](../../../images/intentdetection/openaisharpoutput.png)  
+![azure portal open ai key](../../../images/intentdetection/openaisharpoutput.jpg)  
   
 
 ## Code Explanation
