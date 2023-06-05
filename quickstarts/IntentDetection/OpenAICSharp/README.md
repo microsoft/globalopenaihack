@@ -1,6 +1,6 @@
 # OpenAI Intent Detection
 
-This code is an example of how to use OpenAI's Completion API to determine the intent of a statement and then act on the reponse.  
+This code is an example of how to use OpenAI's Completion API to determine the intent of a statement and then act on the response.  
 [OpenAI API Reference](https://platform.openai.com/docs/api-reference/completions)  
 
 ## Getting Started
