@@ -1,6 +1,6 @@
 # Azure OpenAI Intent Detection
 
-This code is an example of how to use the Azure.AI.OpenAI client library to determine the intent of a statement and then act on the reponse.
+This code is an example of how to use the Azure.AI.OpenAI client library to determine the intent of a statement and then act on the response.
 
  [Azure.AI.OpenAI Source code](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/openai/Azure.AI.OpenAI/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.OpenAI)
 
@@ -46,7 +46,7 @@ Run the code.
 ```dotnetcli
 dotnet run
 ```
-![azure portal open ai key](../../../images/intentdetection/openaisharpoutput.jpg)  
+![azure portal open ai key](../../../images/intentdetection/azureopenaisharpoutput.jpg)  
   
 
 ## Code Explanation
