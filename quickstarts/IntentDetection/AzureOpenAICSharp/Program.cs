@@ -9,7 +9,6 @@ string endpoint = "https://your.azure.openai.endpoint/";
 string key = "api-key-found-in-azure-openai";
 string deploymentName = "AzureOpenAI Studio deployment model name";
 
-
 OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(key));
 
 //Sample text to be used for intent detection
@@ -19,6 +18,7 @@ I am writing to request an exchange for a dress of the correct length. I underst
 I look forward to hearing from you soon.
 Sincerely,
 Liea Organa";
+
 
 string book = @"
 Dear Contoso,
@@ -41,7 +41,7 @@ Order Intent: Defect
 Department: Grocery
 Order Intent: Rotten food
 ---
-Text: {book}
+Text: {dress}
 " },
 		Temperature = (float)0,
 		MaxTokens = 100,
@@ -70,39 +70,6 @@ foreach (string part in completionParts)
 		orderIntent = part.Replace("Order Intent:", "").Trim();
 	}    
 }
-//Now parsed into department and orderIntent, actions can occurr.  In this example, a function is called.
+//Now parsed into department and orderIntent, actions like sending an email, calling a function or raising an event can occurr.  
 Console.WriteLine(department);
 Console.WriteLine(orderIntent);
-
-
-var payload = new
-{
-    department = department,
-    orderIntent = orderIntent
-};
-var jsonPayload = JsonSerializer.Serialize(payload);
-
-// Create an HttpClient instance
-var httpClient = new HttpClient();
-
-// Set the function endpoint URL
-var functionUrl = "https://<your-function-app-name>.azurewebsites.net/api/Processing";
-
-// Create an HttpRequestMessage with the JSON payload
-var request = new HttpRequestMessage(HttpMethod.Post, functionUrl);
-request.Content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
-
-// Send the HTTP request and get the response
-var response = await httpClient.SendAsync(request);
-
-// Check if the response was successful
-if (response.IsSuccessStatusCode)
-{
-    // Do something with the response
-    var responseContent = await response.Content.ReadAsStringAsync();
-    Console.WriteLine(responseContent);
-}
-else
-{
-    Console.WriteLine($"Error: {response.StatusCode} - {response.ReasonPhrase}");
-}
