@@ -211,7 +211,7 @@
                                 "type": "SetVariable",
                                 "inputs": {
                                     "name": "GptResponse",
-                                    "value": "@split(body('ParseAzureOpenAI')?['choices'][0]['text'], '\r\n')"
+                                    "value": "@split(trim(body('ParseAzureOpenAI')?['choices'][0]['text']), '!!')"
                                 }
                             }
                         },
@@ -398,7 +398,7 @@
                                     "type": "SetVariable",
                                     "inputs": {
                                         "name": "GptResponse",
-                                        "value": "@split(body('ParseOpenAI')?['choices'][0]['text'], '\r\n')"
+                                        "value": "@split(trim(body('ParseOpenAI')?['choices'][0]['text']), '!!')"
                                     }
                                 }
                             }
@@ -474,7 +474,7 @@
                                 {
                                     "name": "Behavior",
                                     "type": "string",
-                                    "value": "This is an agent used to detect intent and provide a Department value for the following categories: “Books”, “Home”, “Fashion”, “Electronics”, “Grocery”, “Others”\n---\nSample Output\nDepartment: Electronics\nOrder Intent: Defect\n\nDepartment: Grocery\nOrder Intent: Rotten food\n---\nText:"
+                                    "value": "This is an agent used to detect intent and provide a Department value for the following categories: “Books”, “Home”, “Fashion”, “Electronics”, “Grocery”, “Others”\n---\nSample Output will be in one line separated by !!\nDepartment: Electronics!!Order Intent: Defect\n\nDepartment: Grocery!!\n---\nText:"
                                 }
                             ]
                         }

@@ -32,48 +32,61 @@ Deploy the Logic App to your Azure subscription.
 
 
 1. Set the subscription, resource group, region and name the Logic App.  
-![Step on Logic App](../../../images/logicapps/step1.jpg)  
+![Step on Logic App](../../../images/intentdetection/step1.jpg)  
 
 ### OpenAI  
 2. Add the OpenAI Key to the Initialize OpenAIKey step.  
-![Step on Logic App](../../../images/logicapps/step2oai.jpg)  
+![Step on Logic App](../../../images/intentdetection/step2oai.jpg)  
 To find the API Key sign into the portal, and click the user profile in the top right corner  
 ![open ai dropdown](../../../images/sentimentanalysis/openaidropdown.jpg)  
 Create and store the new key, you will not be able to retieve the value once the create dialog is closed. 
 ![open ai key](../../../images/sentimentanalysis/openaiSecret.jpg)  
 
-3. Using a tool like Postman, post a query to the url found in the http trigger   
-    The body of the request contains a prompt and a type.  The type is set to empty, because this a flow control value for the sample application.  
+3. Using a tool like Postman, post a sample email to the url found in the http trigger   
+    The body of the request contains a prompt and a type.  The type is set to empty, because this a flow control value for the sample application.   
+    Depending on the tool used, the email may need to be html encoded.    
     ```JSON
     {
-        "prompt" : "I don't like pizza!",
+        "prompt" : "Dear Contoso,
+                    I recently purchased a dress from your store and was disappointed to find that it was much shorter than expected. The dress I received was not the same length as the one pictured on your website.
+                    I am writing to request an exchange for a dress of the correct length. I understand that the product I received was not what I expected, and I would like to receive a dress that is the same length as the one pictured on your website.
+                    I look forward to hearing from you soon.
+                    Sincerely,
+                    Liea Organa",
         "type" : ""
     }
     ```
-    ![Http trigger](../../../images/logicapps/step3oai.jpg)  
-    ![OpenAI Postman](../../../images/logicapps/step3oaipostman.jpg)  
+    ![Http trigger](../../../images/intentdetection/step3oai.jpg)  
+    ![OpenAI Postman](../../../images/intentdetection/step3oaipostman.jpg)  
     
     The response sentiment and source value of OpenAI identifies the sample flow condition selected.  
     ```JSON
     {
-    "response": "Negative",
+    "department": "Fashion",
+    "orderIntent": "Exchange",
     "source": "OpenAI"
     }
     ```  
 ### Azure OpenAI
 2. Add the Azure OpenAI endpoint, Azure OpenAI Key and The Azure OpenAI Studio deployment model name to the initialize steps  
-![Step on Logic App](../../../images/logicapps/step2azoai.jpg)  
+![Step on Logic App](../../../images/intentdetection/step2azoai.jpg)  
 ![azure portal open ai key](../../../images/sentimentanalysis/openaikeys.jpg)  
 ![azure portal open ai deployment](../../../images/sentimentanalysis/deployments.jpg)  
 
-3. Using a tool like Postman, post a query to the url found in the http trigger   
-    The body of the request contains a prompt and a type.  The type is set to azure to direct the conditional flow to call the Azure OpenAI endpoint.  
+3.  Using a tool like Postman, post a sample email to the url found in the http trigger   
+    The body of the request contains a prompt and a type.  The type is set to empty, because this a flow control value for the sample application.   
+    Depending on the tool used, the email may need to be html encoded.    
     ```JSON
     {
-        "prompt" : "I don't like pizza!",
+        "prompt" : "Dear Contoso,
+                    I recently purchased a dress from your store and was disappointed to find that it was much shorter than expected. The dress I received was not the same length as the one pictured on your website.
+                    I am writing to request an exchange for a dress of the correct length. I understand that the product I received was not what I expected, and I would like to receive a dress that is the same length as the one pictured on your website.
+                    I look forward to hearing from you soon.
+                    Sincerely,
+                    Liea Organa",
         "type" : "azure"
     }
-    ```  
-    ![Http trigger](../../../images/logicapps/step3oai.jpg)  
-    ![OpenAI Postman](../../../images/logicapps/step3azureoaipostman.jpg)
+    ```
+    ![Http trigger](../../../images/intentdetection/step3oai.jpg)  
+    ![OpenAI Postman](../../../images/intentdetection/step3azureoaipostman.jpg)
     
