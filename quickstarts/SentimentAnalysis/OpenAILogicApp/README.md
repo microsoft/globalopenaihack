@@ -30,11 +30,11 @@ Deploy the Logic App to your Azure subscription.
 
 
 1. Set the subscription, resource group, region and name the Logic App.  
-![Step on Logic App](../../../images/logicapps/step1.jpg)  
+![Step on Logic App](../../../images/sentimentanalysis/step1.jpg)  
 
 ### OpenAI  
 2. Add the OpenAI Key to the Initialize OpenAIKey step.  
-![Step on Logic App](../../../images/logicapps/step2oai.jpg)  
+![Step on Logic App](../../../images/sentimentanalysis/step2oai.jpg)  
 To find the API Key sign into the portal, and click the user profile in the top right corner  
 ![open ai dropdown](../../../images/sentimentanalysis/openaidropdown.jpg)  
 Create and store the new key, you will not be able to retieve the value once the create dialog is closed. 
@@ -48,8 +48,8 @@ Create and store the new key, you will not be able to retieve the value once the
         "type" : ""
     }
     ```
-    ![Http trigger](../../../images/logicapps/step3oai.jpg)  
-    ![OpenAI Postman](../../../images/logicapps/step3oaipostman.jpg)  
+    ![Http trigger](../../../images/sentimentanalysis/step3oai.jpg)  
+    ![OpenAI Postman](../../../images/sentimentanalysis/step3oaipostman.jpg)  
     
     The response sentiment and source value of OpenAI identifies the sample flow condition selected.  
     ```JSON
@@ -60,7 +60,7 @@ Create and store the new key, you will not be able to retieve the value once the
     ```  
 ### Azure OpenAI
 2. Add the Azure OpenAI endpoint, Azure OpenAI Key and The Azure OpenAI Studio deployment model name to the initialize steps  
-![Step on Logic App](../../../images/logicapps/step2azoai.jpg)  
+![Step on Logic App](../../../images/sentimentanalysis/step2azoai.jpg)  
 ![azure portal open ai key](../../../images/sentimentanalysis/openaikeys.jpg)  
 ![azure portal open ai deployment](../../../images/sentimentanalysis/deployments.jpg)  
 
@@ -72,6 +72,6 @@ Create and store the new key, you will not be able to retieve the value once the
         "type" : "azure"
     }
     ```  
-    ![Http trigger](../../../images/logicapps/step3oai.jpg)  
-    ![OpenAI Postman](../../../images/logicapps/step3azureoaipostman.jpg)
+    ![Http trigger](../../../images/sentimentanalysis/step3oai.jpg)  
+    ![OpenAI Postman](../../../images/sentimentanalysis/step3azureoaipostman.jpg)
     
