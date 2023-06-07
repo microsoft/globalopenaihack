@@ -70,12 +70,10 @@ Then, create a variable of the CompletionsOptions class and set the prompt.  Wit
 var completionsOptions = new CompletionsOptions()
 {   Prompts = { @"This is an agent used to detect intent and provide a Department value for the following categories: “Books”, “Home”, “Fashion”, “Electronics”, “Grocery”, “Others”
 ---
-Sample Output
-Department: Electronics
-Order Intent: Defect
+Sample Output will be in one line separated by !!
+Department: Electronics!!Order Intent: Defect
 
-Department: Grocery
-Order Intent: Rotten food
+Department: Grocery!!Order Intent: Rotten food
 ---
 ```
 
@@ -85,7 +83,7 @@ Response<Completions> completionsResponse = client.GetCompletionsAsync(deploymen
 ```  
 The response is then parsed to a department and orderIntet variable.   
 ```C#
-string[] completionParts = completion.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+string[] completionParts = completion.Split(new string[] { "!!" }, StringSplitOptions.None);
 string department  = "";
 string orderIntent = "";
 foreach (string part in completionParts)

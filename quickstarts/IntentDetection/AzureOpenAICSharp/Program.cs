@@ -34,14 +34,12 @@ var completionsOptions = new CompletionsOptions()
     {
 		Prompts = { $@"This is an agent used to detect intent and provide a Department value for the following categories: “Books”, “Home”, “Fashion”, “Electronics”, “Grocery”, “Others”
 ---
-Sample Output
-Department: Electronics
-Order Intent: Defect
+Sample Output will be in one line separated by !!
+Department: Electronics!!Order Intent: Defect
 
-Department: Grocery
-Order Intent: Rotten food
+Department: Grocery!!Order Intent: Rotten food
 ---
-Text: {dress}
+Text: {book}
 " },
 		Temperature = (float)0,
 		MaxTokens = 100,
@@ -54,10 +52,10 @@ Text: {dress}
 
 Response<Completions> completionsResponse = await client.GetCompletionsAsync(deploymentName, completionsOptions);
 
-string completion = completionsResponse.Value.Choices[0].Text;
+string completion = completionsResponse.Value.Choices[0].Text.Trim();
 
 //split completion into department and orderIntent
-string[] completionParts = completion.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+string[] completionParts = completion.Split(new string[] { "!!" }, StringSplitOptions.None);
 string department  = "";
 string orderIntent = "";
 foreach (string part in completionParts)

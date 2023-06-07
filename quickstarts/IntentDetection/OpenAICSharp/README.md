@@ -58,12 +58,10 @@ Create a prompt that includes instructions for the model's behavior and an examp
 ```C#
 string text = $@"This is an agent used to detect intent and provide a Department value for the following categories: “Books”, “Home”, “Fashion”, “Electronics”, “Grocery”, “Others”
 ---
-Sample Output
-Department: Electronics
-Order Intent: Defect
+Sample Output will be in one line separated by !!
+Department: Electronics!!Order Intent: Defect
 
-Department: Grocery
-Order Intent: Rotten food
+Department: Grocery!!Order Intent: Rotten food
 ---
 Text: {book}";
 ```  
@@ -82,7 +80,7 @@ string jsonResponse = await response.Content.ReadAsStringAsync();
 dynamic? result = JsonConvert.DeserializeObject(jsonResponse);
 string completion = result!.choices[0].text;
 
-string[] completionParts = completion.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+string[] completionParts = completion.Split(new string[] { "!!" }, StringSplitOptions.None);
 string department  = "";
 string orderIntent = "";
 foreach (string part in completionParts)
