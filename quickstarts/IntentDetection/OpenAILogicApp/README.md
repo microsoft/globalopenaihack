@@ -24,11 +24,9 @@ Apply for access with this [form](https://aka.ms/oai/access?azure-portal=true)
 * Deployed model to reference in [Azure OpenAI Studio](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model)
 
 ## Usage  
-```
-TODO: Change the button url from intentdetect to main
-```
+
 Deploy the Logic App to your Azure subscription.  
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fglobalopenaihack%2Fintentdetection%2Fquickstarts%2FIntentDetection%2FOpenAILogicApp%2Fazuredeploy.json)  
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fglobalopenaihack%2Fintentdetection%2Fquickstarts%2Fmain%2FOpenAILogicApp%2Fazuredeploy.json)  
 
 
 1. Set the subscription, resource group, region and name the Logic App.  
