@@ -31,7 +31,8 @@
 	"customizations": {
 		"vscode": {
             "extensions": [
-                "ms-dotnettools.dotnet-interactive-vscode"
+                "ms-dotnettools.dotnet-interactive-vscode",
+				"ms-semantic-kernel.semantic-kernel"
             ]
         }
 	}
