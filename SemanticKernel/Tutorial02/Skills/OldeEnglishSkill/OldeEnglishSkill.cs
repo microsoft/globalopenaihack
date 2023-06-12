@@ -6,6 +6,6 @@ public class OldeEnglishSkill
     [SKFunctionInput(Description = "The word or phrase to translate")]
     public string Translate(string input)
     {
-        return $"Translate the following into olde English: {{$input}}";
+        return $"Translate the following into olde English: {input}";
     }
 }
