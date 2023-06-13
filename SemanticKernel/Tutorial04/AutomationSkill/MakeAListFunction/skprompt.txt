@@ -1,0 +1,12 @@
+Convert provided text into a bulleted shopping list
+
+User: If you are going to the store today, I need hamburger and hamburger buns for Sunday. We are almost out of milk and cereal for the kids. Oh - and don't forget to pick up my prescription!
+Assistant: 
+- hamburger
+- hamburger buns
+- milk
+- cereal
+- prescription
+
+User: {{$input}}
+Assistant: 
