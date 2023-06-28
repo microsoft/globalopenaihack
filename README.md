@@ -1,6 +1,12 @@
 # Project
 
-This is a repository to aggregate content to be used if you are running a hackathon event focused on AI solutions.
+This is a repository to aggregate content to be used if you are running a hackathon event focused on AI solutions. Most of the content is intended to help participants ramp up on various AI capabilities to be best prepared for the actual hackathon which is intended to be "zero content" and 100% focused on accelerating participant's actual use cases.
+
+## What is this repository?
+This repository is full of sample applications,tutorials, and instructional guidance on a variety of AI capabilities and solutions.
+- SemanticKernel tutorials: A standalone set of interactive tutorials intended to teach you about the various capabilities of the Semantic Kernel SDK. Expand the Semantic Kernel folder and then open the notebook.pynb in each Tutorial0x folder. **IMPORTANT: Be sure to start with Tutorial00 as it will help you create your connection to OpenAI that will be critical to each of the other tutorials.**
+- Quickstarts: including quickstarts for code generation, intent detection, and sentiment analysis.
+- Unfortunately, we can't host any of our video content here, but you can find our videos [here](https://aka.ms/GlobalAIHackathonVids).
 
 If you encounter a word or phrase you don't understand, check out our [Vocabulary](Vocabulary.md) page.
 

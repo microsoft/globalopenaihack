@@ -1,17 +1,18 @@
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.SkillDefinition;
+using System.ComponentModel;
 
-public class OldeEnglishSkill2
+public class OldeEnglishPlugin2
 {
-    [SKFunction("Given a word or phrase, translate it into Olde English")]
-    [SKFunctionInput(Description = "The word or phrase to translate")]
-    public async Task<string> Translate(string input)
+    [SKFunction()]
+    [Description("Given a word or phrase, translate it into Olde English")]
+    public async Task<string> Translate([SKName("input")][Description("input is the built-in parameter")] string input)
     {
-        // load settings
+        // load settings (you can pass in the kernel to this plugin if you prefer, but this examples assumes you can't)
         MySettings settings = Settings.LoadFromFile();
 
         // configure AI backend used by the kernel
-        var builder = new KernelBuilder();
+        KernelBuilder builder = new();
         if (settings.Type == "azure")
             builder.WithAzureTextCompletionService(settings.AzureOpenAI.CompletionsDeployment, settings.AzureOpenAI.Endpoint, settings.AzureOpenAI.ApiKey);
         else
@@ -19,9 +20,7 @@ public class OldeEnglishSkill2
         IKernel kernel = builder.Build();
 
         // define function
-        string functionDefinition = """
-        Translate the following into Olde English: {{$input}}
-        """;
+        string functionDefinition = "Translate the following into Olde English: {{$input}}";
 
         // add function to the kernel
         var functionInstance = kernel.CreateSemanticFunction(functionDefinition);
