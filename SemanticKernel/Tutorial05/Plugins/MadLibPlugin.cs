@@ -30,9 +30,7 @@ public class MadLibPlugin
             MadLib: The ___(noun)___ Carnival was ___(adjective)___ again this year so they changed the name to the ___(noun)___ Carnival!
             """ + 
             $"\n\nUser: Generate a mad lib with blanks for {numbers[0]} adjectives, {numbers[1]} nouns, and {numbers[2]} verbs.\nMadLib: ";
-
-        Console.WriteLine($"function definition: {functionDefinition}");
-
+            
         var functionInstance = _kernel.CreateSemanticFunction(functionDefinition);
 
         var completion = await functionInstance.InvokeAsync(context);

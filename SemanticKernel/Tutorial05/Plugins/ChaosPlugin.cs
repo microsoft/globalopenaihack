@@ -41,12 +41,12 @@ public class ChaosPlugin
         string functionDefinition = 
             """
             Generate random words of different types.
-            
+
             EXAMPLE:
-            User: Generate 3 nouns, 2 verbs, and 3 adjectives.
-            Assistant: nouns: cat, town, house; verbs: run, jump; adjectives: red, funny, heavy
+            User: Generate 3 adjectives, 3 nouns, and 2 verbs.
+            Assistant: adjectives: red, funny, heavy; nouns: cat, town, house; verbs: run, jump
             """ + 
-            $"Generate {numbers[0]} nouns, {numbers[1]} verbs, and {numbers[2]} adjectives.\nAssistant:";
+            $"Generate {numbers[0]} adjectives, {numbers[1]} nouns, and {numbers[2]} verbs.\nAssistant:";
 
         var functionInstance = _kernel.CreateSemanticFunction(functionDefinition);
 
