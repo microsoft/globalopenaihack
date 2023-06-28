@@ -1,0 +1,2 @@
+Use these {{$randomWords}} to fill in the blanks in the following mad lib:
+{{$madlib}}
