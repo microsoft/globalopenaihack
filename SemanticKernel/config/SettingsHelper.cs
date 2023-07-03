@@ -4,7 +4,7 @@ using System.IO;
 using System.Text.Json;
 
 public class MySettings {
-    public string Type { get; set; } = string.Empty;
+    public string Type { get; set; } = "azure";
     public AzureOpenAI AzureOpenAI { get; set; } = new();
     public OpenAI OpenAI { get; set; } = new();
 }
