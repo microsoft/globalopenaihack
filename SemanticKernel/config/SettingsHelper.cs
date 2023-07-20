@@ -12,6 +12,7 @@ public class MySettings {
 public class AzureOpenAI {
     public string Endpoint { get; set; } = string.Empty;
     public string ApiKey { get; set; } = string.Empty;
+    public string ChatDeployment { get; set; } = string.Empty;
     public string CompletionsDeployment { get; set; } = string.Empty;
 }
 
@@ -40,6 +41,24 @@ public static class Settings
         try
         {
             MySettings settings = JsonSerializer.Deserialize<MySettings>(File.ReadAllText(DefaultConfigFile));
+
+            if (string.IsNullOrWhiteSpace(settings.Type)) throw new ApplicationException("Type is not set in settings.json");
+            if (settings.Type == "azure")
+            {
+                if (string.IsNullOrWhiteSpace(settings.AzureOpenAI.Endpoint)) 
+                    Console.WriteLine("AzureOpenAI.Endpoint is not set in settings.json");
+                if (string.IsNullOrWhiteSpace(settings.AzureOpenAI.ApiKey)) 
+                    Console.WriteLine("AzureOpenAI.ApiKey is not set in settings.json");
+                if (string.IsNullOrWhiteSpace(settings.AzureOpenAI.ChatDeployment) && string.IsNullOrWhiteSpace("AzureOpenAI.CompletionsDeployment")) 
+                    Console.WriteLine("Either AzureOpenAI.ChatDeployment and/or AzureOpenAI.CompletionsDeployment must be set in settings.json");
+            }
+            else
+            {
+                if (string.IsNullOrWhiteSpace(settings.OpenAI.ApiKey))
+                    Console.WriteLine("OpenAI.ApiKey is not set in settings.json");
+                if (string.IsNullOrWhiteSpace(settings.OpenAI.Model))
+                    Console.WriteLine("OpenAI.Model is not set in settings.json");
+            }
 
             return settings;
         }
