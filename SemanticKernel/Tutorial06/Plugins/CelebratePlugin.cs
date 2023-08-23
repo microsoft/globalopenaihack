@@ -30,9 +30,23 @@ public class CelebratePlugin
     public async Task<string> GenerateGiftIdeas(string input)
     {
         string functionDefinition = """
-            create a bulleted list of five gift ideas to celebrate a given special occasion: {{$input}}
+            create a bulleted list of gift ideas to celebrate a given special occasion.
+            the list should always include five items.
+
+            EXAMPLES:
+            USER: what should I get my wife for Valentine's Day?
+            BOT: Here are five gift ideas for Valentine's Day:
+            - A bouquet of roses
+            - A box of chocolates
+            - A bottle of wine
+            - A romantic dinner
+            - A weekend getaway
+
+            USER: {{$input}}
+            BOT: 
             """;
-        ISKFunction function = _kernel.CreateSemanticFunction(functionDefinition);
+        ISKFunction function = _kernel.CreateSemanticFunction(functionDefinition, maxTokens: 1_000);
+                
         SKContext context = await _kernel.RunAsync(input, function);
 
         return context.Result;

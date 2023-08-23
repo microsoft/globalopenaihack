@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Text.Json;
+using Microsoft.SemanticKernel;
 
 public class MySettings {
     public string Type { get; set; } = "azure";
@@ -67,5 +68,23 @@ public static class Settings
             Console.WriteLine($"Something went wrong: {e.Message}");
             return null;
         }
+    }
+
+    public static IKernel SetupSemanticKernel(MySettings settings)
+    {
+        // Configure AI backend used by the kernel
+        KernelBuilder builder = new();
+        if (settings.Type == "azure")
+        {
+            if (!string.IsNullOrWhiteSpace(settings.AzureOpenAI.ChatDeployment))
+                builder.WithAzureChatCompletionService(settings.AzureOpenAI.ChatDeployment, settings.AzureOpenAI.Endpoint, settings.AzureOpenAI.ApiKey);
+            if (!string.IsNullOrWhiteSpace(settings.AzureOpenAI.CompletionsDeployment))
+                builder.WithAzureTextCompletionService(settings.AzureOpenAI.CompletionsDeployment, settings.AzureOpenAI.Endpoint, settings.AzureOpenAI.ApiKey);
+        }
+        else
+            builder.WithOpenAIChatCompletionService(settings.OpenAI.Model, settings.OpenAI.ApiKey, settings.OpenAI.OrgId);
+        IKernel kernel = builder.Build();
+
+        return kernel;
     }
 }
