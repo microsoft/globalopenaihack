@@ -1,0 +1,18 @@
+{
+    "Type": "azure", 
+    "AzureOpenAI": {
+        "Endpoint": "https://oaidmassist.openai.azure.com/", 
+        "ApiKey": "[key]", 
+        "ChatDeployment": "generatenpc", 
+        "CompletionsDeployment": "textcompletions"
+    }, 
+    "OpenAI": {
+        "ApiKey": "", 
+        "OrgId": "", 
+        "Model": ""
+    }
+}
+
+
+
+
