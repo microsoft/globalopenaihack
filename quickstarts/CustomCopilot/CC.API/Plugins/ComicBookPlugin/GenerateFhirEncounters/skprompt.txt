@@ -1,0 +1,5 @@
+﻿generate three valid HL7 FHIR R4 Encounter in JSON format.
+all required properties must be present: the resourcetype property should have value of "Encounter"
+encounters should be based on scenarios from the character's comic book history.
+
+generate three valid HL7 FHIR R4 encounters for {{$input}}.

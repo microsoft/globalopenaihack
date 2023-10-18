@@ -1,0 +1,67 @@
+{
+  "resourceType": "Patient",
+  "id": "joker",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">The Joker</div>"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR",
+            "display": "Medical record number"
+          }
+        ],
+        "text": "The Joker"
+      },
+      "system": "http://hospital.example.org",
+      "value": "123456"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Unknown",
+      "given": [
+        "The Joker"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1940-04-25",
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "line": [
+        "1007 Mountain Drive"
+      ],
+      "city": "Gotham",
+      "state": "NY",
+      "postalCode": "12345",
+      "country": "USA"
+    }
+  ],
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "en",
+            "display": "English"
+          }
+        ]
+      },
+      "preferred": true
+    }
+  ],
+  "managingOrganization": {
+    "reference": "Organization/hospital"
+  }
+}

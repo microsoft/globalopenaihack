@@ -1,0 +1,39 @@
+{
+  "resourceType": "Patient",
+  "id": "hawkeye",
+  "text": {
+    "status": "generated",
+    "div": "<div><p>Hawkeye</p></div>"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR",
+            "display": "Medical record number"
+          }
+        ],
+        "text": "Hawkeye"
+      },
+      "system": "http://hospital.example.org",
+      "value": "hawkeye"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Hawkeye",
+      "given": [
+        "Clint",
+        "Barton"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1964-09-01",
+  "deceasedBoolean": false
+}

@@ -1,0 +1,71 @@
+{
+  "resourceType": "Patient",
+  "id": "loki",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Loki</div>"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR",
+            "display": "Medical record number"
+          }
+        ],
+        "text": "12345"
+      },
+      "system": "http://hospital.smarthealthit.org",
+      "value": "12345",
+      "period": {
+        "start": "1950-08-01"
+      },
+      "assigner": {
+        "display": "Smart Health IT"
+      }
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Laufeyson",
+      "given": [
+        "Loki"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1962-10-01",
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "type": "both",
+      "text": "Asgard"
+    }
+  ],
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "en",
+            "display": "English"
+          }
+        ]
+      },
+      "preferred": true
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://example.org/fhir/StructureDefinition/allergyintolerance",
+      "valueString": "Thor"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="CC.UI.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:CC.UI"
+    xmlns:page="clr-namespace:CC.UI.Pages"
+    xmlns:vm="clr-namespace:CC.UI.ViewModels" 
+    xmlns:ctrl="clr-namespace:CC.UI.Controls"
+    Shell.FlyoutBehavior="Disabled">
+    <Shell.BindingContext>
+        <vm:AppViewModel />
+    </Shell.BindingContext>
+    
+    <Shell.MenuBarItems>
+        <MenuBarItem Text="Dashboard" />
+        <MenuBarItem Text="Patient Finder" />
+        <MenuBarItem Text="Message Center" />
+        <MenuBarItem Text="{Binding CurrentLocation}">
+            <MenuFlyoutSubItem Text="Change Location">
+                <MenuFlyoutItem Text="Baxter Building" Command="{Binding SetLocationCommand}" />
+                <MenuFlyoutItem Text="Four Freedoms Plaza" />
+                <MenuFlyoutItem Text="Sanctum Sanctorum" />
+                <MenuFlyoutItem Text="Xavier School for Gifted Youngsters" />
+            </MenuFlyoutSubItem>
+            <MenuFlyoutSeparator />
+            <MenuFlyoutItem Text="Add Location" />
+        </MenuBarItem>
+        <MenuBarItem Text="View">
+            <MenuFlyoutItem Text="Refresh" />
+            <MenuFlyoutItem Text="Change Theme" />
+        </MenuBarItem>
+    </Shell.MenuBarItems>
+
+    <TabBar>
+        <ShellContent
+            Title="Patient Finder"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage" />
+
+        <ShellContent
+            Title="Scheduling"
+            ContentTemplate="{DataTemplate page:SchedulingPage}"
+            Route="EncounterPage" />
+    </TabBar>
+</Shell>

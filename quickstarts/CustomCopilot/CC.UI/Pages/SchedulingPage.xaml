@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CC.UI.Pages.SchedulingPage"
+             xmlns:ctrl="clr-namespace:CC.UI.Controls"
+             Title="SchedulingPage">
+    <Grid ColumnDefinitions="4*,*" RowDefinitions="Auto,*">
+        <ListView Grid.Row="1" Header="Appointments">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid ColumnDefinitions="*,*">
+                            <Label Grid.Column="0" Text=""  />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+        <ctrl:CopilotChat Grid.Column="1" />
+    </Grid>
+</ContentPage>

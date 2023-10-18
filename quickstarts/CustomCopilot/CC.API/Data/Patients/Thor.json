@@ -1,0 +1,71 @@
+{
+  "resourceType": "Patient",
+  "id": "Thor",
+  "text": {
+    "status": "generated",
+    "div": "<div><p>Thor</p></div>"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR",
+            "display": "Medical record number"
+          }
+        ],
+        "text": "Thor"
+      },
+      "system": "http://hospital.smarthealthit.org",
+      "value": "Thor",
+      "period": {
+        "start": "1962-08-01"
+      },
+      "assigner": {
+        "display": "Smart Health IT"
+      }
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Odinson",
+      "given": [
+        "Thor"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1962-08-01",
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "type": "both",
+      "text": "Asgard"
+    }
+  ],
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "en",
+            "display": "English"
+          }
+        ]
+      },
+      "preferred": true
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://example.org/fhir/StructureDefinition/allergyintolerance",
+      "valueString": "Lack of worthiness"
+    }
+  ]
+}

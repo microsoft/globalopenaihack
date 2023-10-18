@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "type": "completion",
+  "description": "Generate HL7 FHIR data to represent a comic book character.",
+  "completion": {
+    "max_tokens": 1000,
+    "temperature": 0.0,
+    "top_p": 0.0,
+    "presence_penalty": 0.0,
+    "frequency_penalty": 0.0
+  },
+  "input": {
+    "parameters": [
+      {
+        "name": "input",
+        "description": "The name of the comic book character.",
+        "defaultValue": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:vm="clr-namespace:CC.UI.ViewModels"
+             xmlns:m="clr-namespace:CC.UI.Models"
+             x:Class="CC.UI.Controls.CopilotChat"
+             x:DataType="vm:CopilotChatViewModel">
+    <ContentView.BindingContext>
+        <vm:CopilotChatViewModel />
+    </ContentView.BindingContext>
+    <Grid RowDefinitions="Auto,*,Auto,Auto">
+        <Border StrokeThickness="2"
+                Stroke="#808080"
+                StrokeShape="RoundRectangle 8,8,8,8"
+                Padding="12">
+            <Border.Content>
+                <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
+                    <Button x:Name="StartListenBtn" Text="Start Listening" 
+                            FontSize="Small"
+                            Command="{Binding ListenCommand}"/>
+                    <Button x:Name="StopListenBtn" Text="Stop Listening" 
+                            FontSize="Small"
+                            Command="{Binding ListenCancelCommand}"
+                            Grid.Column="1" />
+                    <Button Text="Start Listening" 
+                            FontSize="Small"
+                            Command="{Binding StartListenCommand}" 
+                            Grid.Row="1"/>
+                    <Button Text="Stop Listening" 
+                            FontSize="Small"
+                            Command="{Binding StopListenCommand}"
+                            Grid.Column="1" Grid.Row="1" />
+                </Grid>
+            </Border.Content>
+        </Border>
+        <Label Text="{Binding RecognitionText}" 
+               Grid.Row="1"/>
+        <!--<ListView x:Name="ChatList" ItemsSource="{Binding ChatHistory}" 
+                  SelectionMode="None" VerticalScrollBarVisibility="Always" 
+                  Grid.Row="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell x:DataType="m:ChatItem">
+                        <Border BackgroundColor="{Binding BackgroundColor}"
+                                Padding="10">
+                            <Grid RowDefinitions="*,Auto" Padding="10">
+                                <Label Text="{Binding Text}" />
+                                <ListView ItemsSource="{Binding Actions}">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Button Text="{Binding}" />
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Grid>
+                        </Border>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>-->
+        
+        <Grid ColumnDefinitions="3*,*" Grid.Row="2">
+            <Entry x:Name="ChatEntry" 
+                   Placeholder="Enter chat here" 
+                   SemanticProperties.Hint="Enter chat here" 
+                   HorizontalOptions="FillAndExpand" />
+            <Button x:Name="SubmitChatBtn" 
+                    Grid.Column="1"
+                    Text=">" 
+                    SemanticProperties.Hint="Submits the user's text input to the copilot." 
+                    Clicked="OnSubmitChatClicked" 
+                    HorizontalOptions="Center" />
+        </Grid>
+        
+        <Button x:Name="GenerateChatHistory" 
+                Grid.Row="3"
+                Text="Generate chat history" 
+                SemanticProperties.Hint="Generates chat history" 
+                Clicked="OnGenerateChatHistoryClicked" 
+                HorizontalOptions="CenterAndExpand" />
+    </Grid>
+</ContentView>

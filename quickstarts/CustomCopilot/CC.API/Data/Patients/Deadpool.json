@@ -1,0 +1,77 @@
+{
+  "resourceType": "Patient",
+  "id": "deadpool",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Deadpool</div>"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR",
+            "display": "Medical record number"
+          }
+        ],
+        "text": "Deadpool"
+      },
+      "system": "http://hospital.somewhere.org",
+      "value": "deadpool"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Wilson",
+      "given": [
+        "Wade",
+        "Winston"
+      ]
+    },
+    {
+      "use": "nickname",
+      "given": [
+        "Deadpool"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1991-02-01",
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "line": [
+        "123 Fake Street"
+      ],
+      "city": "New York",
+      "state": "NY",
+      "postalCode": "10001",
+      "country": "USA"
+    }
+  ],
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "en-US",
+            "display": "English (United States)"
+          }
+        ]
+      },
+      "preferred": true
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://example.org/fhir/StructureDefinition/allergyintolerance",
+      "valueString": "Cure for cancer"
+    }
+  ]
+}

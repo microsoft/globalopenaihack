@@ -1,0 +1,76 @@
+{
+  "resourceType": "Patient",
+  "id": "batman",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Batman</div>"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR",
+            "display": "Medical record number"
+          }
+        ],
+        "text": "Batman"
+      },
+      "system": "http://hospital.saintwayne.com",
+      "value": "batman",
+      "period": {
+        "start": "1939-05-01"
+      },
+      "assigner": {
+        "display": "Saint Wayne Hospital"
+      }
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Wayne",
+      "given": [
+        "Bruce"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1939-05-01",
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "line": [
+        "1007 Mountain Drive"
+      ],
+      "city": "Gotham",
+      "state": "New Jersey",
+      "postalCode": "12345",
+      "country": "USA"
+    }
+  ],
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "en-US",
+            "display": "English (United States)"
+          }
+        ]
+      },
+      "preferred": true
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://example.org/fhir/StructureDefinition/allergyintolerance",
+      "valueString": "Fear of Bats"
+    }
+  ]
+}

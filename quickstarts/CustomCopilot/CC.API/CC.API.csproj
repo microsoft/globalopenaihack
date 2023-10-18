@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>02ea024b-83f0-4685-a381-8a01324cca2f</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Plugins\ComicBookPlugin\GenerateFhirEncounters\skprompt.txt" />
+    <None Remove="Plugins\ComicBookPlugin\GenerateFhir\skprompt - Copy.txt" />
+    <None Remove="Plugins\ComicBookPlugin\GenerateFhir\skprompt.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Plugins\ComicBookPlugin\GenerateFhirEncounters\skprompt.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Plugins\ComicBookPlugin\GetPopularCharacters\skprompt.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Plugins\ComicBookPlugin\GenerateFhir\skprompt.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hl7.Fhir.R4" Version="5.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.12" />
+    <PackageReference Include="Microsoft.SemanticKernel" Version="1.0.0-beta1" />
+    <PackageReference Include="Microsoft.SemanticKernel.Functions.Semantic" Version="1.0.0-beta1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CC.Shared\CC.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\Encounters\" />
+  </ItemGroup>
+
+</Project>
