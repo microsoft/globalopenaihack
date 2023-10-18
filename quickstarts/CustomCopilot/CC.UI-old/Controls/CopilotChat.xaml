@@ -36,6 +36,7 @@
         </Border>
         <Label Text="{Binding RecognitionText}" 
                Grid.Row="1"/>
+        <!-- chat history to go in this listview -->
         <!--<ListView x:Name="ChatList" ItemsSource="{Binding ChatHistory}" 
                   SelectionMode="None" VerticalScrollBarVisibility="Always" 
                   Grid.Row="1">
@@ -69,7 +70,7 @@
                     Grid.Column="1"
                     Text=">" 
                     SemanticProperties.Hint="Submits the user's text input to the copilot." 
-                    Clicked="OnSubmitChatClicked" 
+                    Clicked="SubmitChatBtn_Clicked" 
                     HorizontalOptions="Center" />
         </Grid>
         

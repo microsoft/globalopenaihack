@@ -91,4 +91,8 @@ public partial class CopilotChat : ContentView
         chat70.Actions.Add("View alternative medications");
         ChatHistory.Add(chat70);
     }
+
+    private void SubmitChatBtn_Clicked(object sender, EventArgs e)
+    {
+    }
 }
