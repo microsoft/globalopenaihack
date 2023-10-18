@@ -11,7 +11,7 @@
     <Shell.BindingContext>
         <vm:AppViewModel />
     </Shell.BindingContext>
-    
+
     <Shell.MenuBarItems>
         <MenuBarItem Text="Dashboard" />
         <MenuBarItem Text="Patient Finder" />

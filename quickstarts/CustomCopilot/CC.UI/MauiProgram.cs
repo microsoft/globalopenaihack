@@ -20,10 +20,8 @@ namespace CC.UI
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            //builder.Services.AddSingleton<ISpeechToText>(SpeechToText.Default);
-
 #if DEBUG
-            builder.Logging.AddDebug();
+		builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

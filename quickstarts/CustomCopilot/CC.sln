@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CC.API", "CC.API\CC.API.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CC.Shared", "CC.Shared\CC.Shared.csproj", "{68EEA25D-0CF0-48AB-95DA-08EB917439C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CC.UI", "CC.UI\CC.UI.csproj", "{87CF61D0-EEBB-4C40-A780-B081182C287F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,12 @@ Global
 		{68EEA25D-0CF0-48AB-95DA-08EB917439C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68EEA25D-0CF0-48AB-95DA-08EB917439C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68EEA25D-0CF0-48AB-95DA-08EB917439C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87CF61D0-EEBB-4C40-A780-B081182C287F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87CF61D0-EEBB-4C40-A780-B081182C287F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87CF61D0-EEBB-4C40-A780-B081182C287F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{87CF61D0-EEBB-4C40-A780-B081182C287F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87CF61D0-EEBB-4C40-A780-B081182C287F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87CF61D0-EEBB-4C40-A780-B081182C287F}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

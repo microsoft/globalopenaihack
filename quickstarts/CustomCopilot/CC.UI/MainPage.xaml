@@ -7,10 +7,10 @@
     <ContentPage.BindingContext>
         <vm:MainViewModel />
     </ContentPage.BindingContext>
-    
+
     <Grid ColumnDefinitions="4*,*" RowDefinitions="Auto,*">
         <ctrl:PatientList PatientSelected="PatientList_PatientSelected" />
-        
+
         <ctrl:CopilotChat Grid.Column="1" />
     </Grid>
 </ContentPage>

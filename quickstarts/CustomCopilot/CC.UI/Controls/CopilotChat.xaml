@@ -17,18 +17,18 @@
             <Border.Content>
                 <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
                     <Button x:Name="StartListenBtn" Text="Start Listening" 
-                            FontSize="Small"
+                            FontSize="8"
                             Command="{Binding ListenCommand}"/>
                     <Button x:Name="StopListenBtn" Text="Stop Listening" 
-                            FontSize="Small"
+                            FontSize="8"
                             Command="{Binding ListenCancelCommand}"
                             Grid.Column="1" />
                     <Button Text="Start Listening" 
-                            FontSize="Small"
+                            FontSize="8"
                             Command="{Binding StartListenCommand}" 
                             Grid.Row="1"/>
                     <Button Text="Stop Listening" 
-                            FontSize="Small"
+                            FontSize="8"
                             Command="{Binding StopListenCommand}"
                             Grid.Column="1" Grid.Row="1" />
                 </Grid>
