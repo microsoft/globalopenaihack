@@ -46,7 +46,8 @@ static async Task<IResult> GetAllPatients()
 {
     List<string> patients = new();
 
-    string[] files = Directory.GetFiles("C:\\src\\CC\\CC.API\\Data\\Patients");
+    string patientDataPath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "Patients");
+    string[] files = Directory.GetFiles(patientDataPath);
     foreach (string file in files)
     {
         using StreamReader reader = new(file);
