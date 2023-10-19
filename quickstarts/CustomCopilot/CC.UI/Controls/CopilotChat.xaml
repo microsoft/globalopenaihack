@@ -9,7 +9,7 @@
     <ContentView.BindingContext>
         <vm:CopilotChatViewModel />
     </ContentView.BindingContext>
-    
+
     <Grid RowDefinitions="Auto,*,Auto,Auto">
         <Border StrokeThickness="2"
                 Stroke="#808080"
@@ -35,10 +35,10 @@
                 </Grid>
             </Border.Content>
         </Border>
-        <Label Text="{Binding RecognitionText}" 
-               Grid.Row="1" Margin="5"/>
+        <!--<Label Text="{Binding RecognitionText}" 
+               Grid.Row="1" Margin="5"/>-->
         <!-- chat history to go in this listview -->
-        <!--<ListView x:Name="ChatList" ItemsSource="{Binding ChatHistory}" 
+        <ListView x:Name="ChatList" ItemsSource="{Binding ChatHistory}" 
                   SelectionMode="None" VerticalScrollBarVisibility="Always" 
                   Grid.Row="1">
             <ListView.ItemTemplate>
@@ -46,12 +46,17 @@
                     <ViewCell x:DataType="m:ChatItem">
                         <Border BackgroundColor="{Binding BackgroundColor}"
                                 Padding="10">
-                            <Grid RowDefinitions="*,Auto" Padding="10">
-                                <Label Text="{Binding Text}" />
-                                <ListView ItemsSource="{Binding Actions}">
+                            <Grid RowDefinitions="Auto,Auto,Auto" Padding="10" >
+                                <!--HorizontalOptions="{Binding HorizontalAlignment}"-->
+                                <Label Text="{Binding Author}" Grid.Row="0" />
+                                <!--use negative margins..-->
+                                <Label Text="{Binding Text}"  Grid.Row="1" Margin="15,0" />
+                                <ListView ItemsSource="{Binding Actions}" Grid.Row="2" Margin="15,0">
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
-                                            <Button Text="{Binding}" />
+                                            <ViewCell x:DataType="m:ChatAction">
+                                                <Button Text="{Binding Description}" />
+                                            </ViewCell>
                                         </DataTemplate>
                                     </ListView.ItemTemplate>
                                 </ListView>
@@ -60,8 +65,9 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>-->
-        
+        </ListView>
+
+
         <Grid ColumnDefinitions="3*,*" Grid.Row="2" Margin="5">
             <Entry x:Name="ChatEntry" 
                    Placeholder="Enter chat here" 
@@ -74,12 +80,12 @@
                     Clicked="SubmitChatBtn_Clicked" 
                     HorizontalOptions="Center" />
         </Grid>
-        
+
         <Button x:Name="GenerateChatHistory" 
                 Grid.Row="3" Margin="5"
                 Text="Generate chat history" 
                 SemanticProperties.Hint="Generates chat history" 
-                Clicked="OnGenerateChatHistoryClicked" 
+                Command="{Binding GenerateChatHistoryCommand}" 
                 HorizontalOptions="CenterAndExpand" />
     </Grid>
 </ContentView>

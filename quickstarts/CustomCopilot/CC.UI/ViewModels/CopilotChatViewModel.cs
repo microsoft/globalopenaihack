@@ -5,6 +5,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using System.Globalization;
+using System.Net.Http.Headers;
 
 namespace CC.UI.ViewModels
 {
@@ -29,6 +30,10 @@ namespace CC.UI.ViewModels
         [ObservableProperty, NotifyCanExecuteChangedFor(nameof(StopListenCommand))]
         private bool canStopListenExecute = false;
 
+
+        [ObservableProperty, NotifyCanExecuteChangedFor(nameof(GenerateChatHistoryCommand))]
+        private bool canGenerateChatHistoryExecute = true;
+
         public CopilotChatViewModel()
         {
             _speechToText = SpeechToText.Default;
@@ -51,14 +56,10 @@ namespace CC.UI.ViewModels
                 }
 
                 const string beginSpeakingPrompt = "Begin speaking...";
+                
                 RecognitionText = beginSpeakingPrompt;
-                //ChatItem beginSpeaking = new()
-                //{
-                //    Author = "Copilot",
-                //    Text = RecognitionText,
-                //    Timestamp = DateTime.Now
-                //};
-                //ChatHistory.Add(beginSpeaking);
+
+                ChatHistory.Add(new ChatItem("Copilot", RecognitionText));
 
                 SpeechToTextResult recognitionResult = await _speechToText.ListenAsync(
                     CultureInfo.GetCultureInfo(_defaultLanguage),
@@ -94,6 +95,27 @@ namespace CC.UI.ViewModels
                 CanStartListenExecute = true;
             }
         }
+
+        [RelayCommand(IncludeCancelCommand = true, CanExecute = nameof(CanGenerateChatHistoryExecute))]
+        private async Task GenerateChatHistory(CancellationToken cancellationToken)
+        {
+            ChatHistory.Add(new("You", "Your strep test came back positive."));
+            await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+            ChatHistory.Add(new("You", "I'd like to prescribe you an antibiotic to fight the infection."));
+            await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+            ChatHistory.Add(new("Copilot", "Reminder: This patient is allergic to penicillin.", "List alternatives.", "View allergies."));
+            await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+            ChatHistory.Add(new("You", "Since you are allergic to penicillin, I'm going to write you a prescription for Keflex."));
+            await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+            ChatHistory.Add(new("Copilot", "Do you want me to send the prescription to the patient's preferred pharmacy?", "Submit medication request"));
+            await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+            ChatHistory.Add(new("Patient", "Is Keflex my cheapest option?"));
+            await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+            ChatHistory.Add(new("You", "Let me see."));
+            await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+            ChatHistory.Add(new("Copilot", "Yes, based on the Patient's insurance, Keflex is their cheapest option.", "View insurance", "View alternative medications"));
+        }
+
 
         [RelayCommand(CanExecute = nameof(CanStartListenExecute))]
         private async Task StartListen(CancellationToken cancellationToken)

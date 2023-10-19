@@ -1,42 +1,46 @@
-﻿namespace CC.UI.Models
+﻿using Microsoft.Maui.Graphics.Converters;
+using System.Globalization;
+
+namespace CC.UI.Models;
+
+public class ChatAction
 {
-    public class ChatItem
+    public ChatAction() { }
+    public ChatAction(string description) { Description = description; }
+    public string Description { get; set; } = string.Empty;
+    public delegate void ActionDelegate();
+}
+
+public class ChatItem
+{
+    public ChatItem() { }
+    // cheating :)
+    public ChatItem(string author, string description, params string[] actionDescriptions)
     {
-        public string Text { get; set; } = string.Empty;
+        Author = author;
+        Text = description;
+        Timestamp = DateTime.Now;
+        Actions.AddRange(actionDescriptions.Select(a => new ChatAction(a)));
 
-        public string Author { get; set; } = string.Empty;
-
-        public DateTime Timestamp { get; set; }
-
-        public List<string> Actions { get; } = new();
-
-        public string BackgroundColor
+        BackgroundColor = author switch
         {
-            get
-            {
-                switch (Author)
-                {
-                    case "Copilot":
-                        return "#FFC0C0C0";
-                    case "Patient":
-                        return "#FFC0C0FF";
-                    case "You":
-                        return "#FFC0FFC0";
-                    default:
-                        return "#FFFFFFFF";
-                }
-            }
-        }
-
-        public string HorizontalAlignment
-        {
-            get
-            {
-                if (string.Compare(Author, "You") == 0)
-                    return "Right";
-                else
-                    return "Left";
-            }
-        }
+            "Copilot" => "Red",//"#FFC0C0C0";
+            "Patient" => "Yellow",//"#FFC0C0FF";
+            "You" => "Blue",//"#FFC0FFC0";
+            _ => "White",//"#FFFFFFFF";
+        };
+        HorizontalAlignment = author == "You" ? "Start" : "End";
     }
+
+    public string Text { get; set; } = string.Empty;
+
+    public string Author { get; set; } = string.Empty;
+
+    public DateTime Timestamp { get; set; }
+
+    public List<ChatAction> Actions { get; } = new();
+
+    public string BackgroundColor { get; set; }
+
+    public string HorizontalAlignment { get; set; }
 }
