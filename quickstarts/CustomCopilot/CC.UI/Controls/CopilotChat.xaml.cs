@@ -21,12 +21,9 @@ public partial class CopilotChat : ContentView
         InitializeComponent();
     }
 
-
     //TODO: just for testing UI; remove once we get real data
     //private void OnGenerateChatHistoryClicked(object sender, EventArgs e)
     //{
-
-
     //    ChatItem chat09 = new()
     //    {
     //        Author = "You",

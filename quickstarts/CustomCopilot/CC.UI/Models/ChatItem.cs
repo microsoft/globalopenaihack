@@ -1,13 +1,13 @@
-﻿using Microsoft.Maui.Graphics.Converters;
-using System.Globalization;
-
-namespace CC.UI.Models;
+﻿namespace CC.UI.Models;
 
 public class ChatAction
 {
     public ChatAction() { }
+
     public ChatAction(string description) { Description = description; }
+
     public string Description { get; set; } = string.Empty;
+
     public delegate void ActionDelegate();
 }
 

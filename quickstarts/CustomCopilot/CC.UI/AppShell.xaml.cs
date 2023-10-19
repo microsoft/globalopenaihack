@@ -2,6 +2,7 @@
 using CC.UI.Models;
 using CC.UI.Pages;
 using CC.UI.Services;
+using CC.UI.ViewModels;
 using Microsoft.SemanticKernel.Orchestration;
 using Microsoft.SemanticKernel.Planning;
 using System.ComponentModel.DataAnnotations;
@@ -38,7 +39,11 @@ namespace CC.UI
                     case "SummarizeEncounter":
                         // no additional parameters needed
                         FunctionResult summarizeResult = await plan.InvokeAsync(context);
-                        copilotChat.ChatHistory.Add(new ChatItem() { Text = summarizeResult.GetValue<string>(), Author = "Copilot", Timestamp = DateTime.Now });
+                        CopilotChatViewModel vm = copilotChat.BindingContext as CopilotChatViewModel;
+                        vm.ChatHistory.Add(new ChatItem() { 
+                            Text = summarizeResult.GetValue<string>(), 
+                            Author = "Copilot", Timestamp = DateTime.Now 
+                        });
                         break;
                     default:
                         break;
