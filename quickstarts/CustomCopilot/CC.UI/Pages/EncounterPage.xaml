@@ -13,8 +13,10 @@
         <VerticalStackLayout Margin="50,0">
             <toolkit:Expander>
                 <toolkit:Expander.Header>
-                    <Label Text="Visit Details" 
-                           Background="DarkSlateBlue" FontSize="Header" />
+                    <StackLayout BackgroundColor="{DynamicResource Primary}">
+                        <Label Text="Visit Details" FontSize="Header" 
+                               HorizontalOptions="Center" VerticalOptions="Center" />
+                    </StackLayout>
                 </toolkit:Expander.Header>
                 <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="*,*,*">
                     <Label Text="Visit Category" Margin="5" 
@@ -69,8 +71,10 @@
 
             <toolkit:Expander>
                 <toolkit:Expander.Header>
-                    <Label Text="Reason for Visit" 
-                           Background="DarkSlateBlue" FontSize="Header" />
+                    <StackLayout BackgroundColor="{DynamicResource Primary}">
+                        <Label Text="Reason for Visit" FontSize="Header" 
+                               HorizontalOptions="Center" VerticalOptions="Center" />
+                    </StackLayout>
                 </toolkit:Expander.Header>
                 <Grid ColumnDefinitions="3*,*">
                     <Editor x:Name="EncounterNotes" Placeholder="Enter your notes" 

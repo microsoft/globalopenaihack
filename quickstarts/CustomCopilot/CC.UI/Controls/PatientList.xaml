@@ -5,11 +5,17 @@
     <VerticalStackLayout>
         <Button x:Name="GetPatientsBtn" Text="Refresh patients" 
                 SemanticProperties.Hint="Retrieves patients from data store" 
-                Clicked="OnGetPatientsClicked" HorizontalOptions="Start" />
+                Clicked="OnGetPatientsClicked" HorizontalOptions="End" />
 
         <ListView ItemsSource="{Binding Patients}" Grid.Row="1" 
                   ItemSelected="ListView_ItemSelected" HorizontalOptions="StartAndExpand"
-                  Header="Patients">
+                  VerticalScrollBarVisibility="Always">
+            <ListView.Header>
+                <StackLayout BackgroundColor="{DynamicResource Primary}">
+                    <Label Text="Patients" FontSize="Header"
+                           HorizontalOptions="Center" VerticalOptions="Center" />
+                </StackLayout>
+            </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

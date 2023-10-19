@@ -14,7 +14,7 @@
 
     <Shell.MenuBarItems>
         <MenuBarItem Text="Dashboard" />
-        <MenuBarItem Text="Patient Finder" />
+        <MenuBarItem Text="Patients" />
         <MenuBarItem Text="Message Center" />
         <MenuBarItem Text="{Binding CurrentLocation}">
             <MenuFlyoutSubItem Text="Change Location">
@@ -34,7 +34,7 @@
 
     <TabBar>
         <ShellContent
-            Title="Patient Finder"
+            Title="Patients"
             ContentTemplate="{DataTemplate local:MainPage}"
             Route="MainPage" />
 
