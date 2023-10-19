@@ -1,4 +1,5 @@
 using CC.Shared;
+using CC.UI.Pages;
 using CC.UI.Services;
 using System.Collections.ObjectModel;
 
@@ -32,5 +33,10 @@ public partial class PatientList : ContentView
     private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
         PatientSelected?.Invoke(this, e);
+    }
+
+    private async void OnNewEncounterClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(EncounterPage));
     }
 }

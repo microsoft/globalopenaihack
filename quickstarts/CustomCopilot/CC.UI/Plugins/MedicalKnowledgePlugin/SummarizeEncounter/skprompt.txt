@@ -1,0 +1,5 @@
+﻿summarize the main points of a clinical encounter in less than 200 words.
+
+be sure to capture a bullet point list of any actions and their owners.
+
+use the transcription of the encounter: {{$transcription}}

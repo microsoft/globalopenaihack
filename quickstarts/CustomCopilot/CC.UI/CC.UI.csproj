@@ -32,6 +32,7 @@
 
 	<PropertyGroup>
 	  <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.20348.0</TargetFrameworks>
+	  <UserSecretsId>d5f68ca2-5a77-4b08-9497-13759ac59225</UserSecretsId>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -53,10 +54,27 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Plugins\MedicalKnowledgePlugin\SummarizeEncounter\config.json" />
+	  <None Remove="Plugins\MedicalKnowledgePlugin\SummarizeEncounter\skprompt.txt" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Plugins\MedicalKnowledgePlugin\SummarizeEncounter\config.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
+	  <Content Include="Plugins\MedicalKnowledgePlugin\SummarizeEncounter\skprompt.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="6.0.0" />
 		<PackageReference Include="CommunityToolkit.Maui.MediaElement" Version="2.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="Microsoft.SemanticKernel" Version="1.0.0-beta2" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -79,6 +97,10 @@
 	  <MauiXaml Update="Pages\SchedulingPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Plugins\ApplicationHelpPlugin\" />
 	</ItemGroup>
 
 </Project>

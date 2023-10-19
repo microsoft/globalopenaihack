@@ -1,5 +1,4 @@
 ﻿using CommunityToolkit.Maui;
-using CommunityToolkit.Maui.Media;
 using Microsoft.Extensions.Logging;
 
 namespace CC.UI

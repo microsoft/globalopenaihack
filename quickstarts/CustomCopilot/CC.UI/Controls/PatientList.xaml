@@ -3,17 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CC.UI.Controls.PatientList">
     <VerticalStackLayout>
-
         <Button x:Name="GetPatientsBtn" Text="Refresh patients" 
                 SemanticProperties.Hint="Retrieves patients from data store" 
                 Clicked="OnGetPatientsClicked" HorizontalOptions="Start" />
-        
+
         <ListView ItemsSource="{Binding Patients}" Grid.Row="1" 
                   ItemSelected="ListView_ItemSelected" HorizontalOptions="StartAndExpand"
                   Header="Patients">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Create new encounter" Clicked="OnNewEncounterClicked" />
+                            <MenuItem Text="View previous encounters" />
+                        </ViewCell.ContextActions>
                         <Grid Padding="10" ColumnDefinitions="*,*,*,*,*">
                             <Label Grid.Column="0" Text="{Binding Id}" IsVisible="false" />
                             <Label Grid.Column="1" Text="{Binding Name[0].Given[0]}" />

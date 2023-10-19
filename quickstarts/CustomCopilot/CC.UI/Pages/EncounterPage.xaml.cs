@@ -1,3 +1,5 @@
+using CC.UI.Services;
+
 namespace CC.UI.Pages;
 
 public partial class EncounterPage : ContentPage
@@ -6,4 +8,9 @@ public partial class EncounterPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void OnSummarizeTranscriptClicked(object sender, EventArgs e)
+    {
+		//AiServices.SummarizeEncounter();
+    }
 }
