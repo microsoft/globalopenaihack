@@ -14,6 +14,8 @@ namespace CC.UI.ViewModels
 
         public ICommand SetLocationCommand { private set; get; }
 
+        public ICommand GoToPatientListCommand { private set; get; }
+
         public string CurrentLocation { get; set; } = "Baxter Building";
 
         public AppViewModel()
@@ -22,6 +24,16 @@ namespace CC.UI.ViewModels
             execute: (string arg) =>
             {
                 CurrentLocation = arg;
+            },
+            canExecute: (string arg) =>
+            {
+                return true;
+            });
+
+            GoToPatientListCommand = new Command<string>(
+            execute: (string arg) =>
+            {
+                Shell.Current.GoToAsync(nameof(MainPage));
             },
             canExecute: (string arg) =>
             {

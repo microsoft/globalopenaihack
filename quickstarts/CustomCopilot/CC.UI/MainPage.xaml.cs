@@ -2,6 +2,8 @@
 {
     public partial class MainPage : ContentPage
     {
+        public static string Description { get; } = "This page allows user view a list of patients.";
+
         public MainPage()
         {
             InitializeComponent();

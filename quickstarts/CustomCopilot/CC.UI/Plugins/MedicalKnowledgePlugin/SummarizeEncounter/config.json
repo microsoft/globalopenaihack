@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "type": "completion",
-  "description": "Generate HL7 FHIR encounters to represent encounters for a comic book character.",
+  "description": "Summarize a clinical encounter based on transcription and other captured data.",
   "completion": {
     "max_tokens": 1000,
     "temperature": 0.0,
@@ -12,8 +12,8 @@
   "input": {
     "parameters": [
       {
-        "name": "input",
-        "description": "The name of the comic book character.",
+        "name": "transcription",
+        "description": "Transcription of conversation between participants in an encounter.",
         "defaultValue": ""
       }
     ]

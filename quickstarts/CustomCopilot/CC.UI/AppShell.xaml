@@ -14,7 +14,9 @@
 
     <Shell.MenuBarItems>
         <MenuBarItem Text="Dashboard" />
-        <MenuBarItem Text="Patients" />
+        <MenuBarItem Text="Patients">
+            <MenuFlyoutItem Text="View list" Command="{Binding GoToPatientListCommand}" />
+        </MenuBarItem>
         <MenuBarItem Text="Message Center" />
         <MenuBarItem Text="{Binding CurrentLocation}">
             <MenuFlyoutSubItem Text="Change Location">
@@ -38,7 +40,7 @@
         </StackLayout>
     </Shell.FlyoutHeader>
     <Shell.FlyoutContent>
-        <ctrl:CopilotChat />
+        <ctrl:CopilotChat x:Name="copilotChat" SubmitChat="CopilotChat_SubmitChat" />
     </Shell.FlyoutContent>
     <TabBar>
         <ShellContent
