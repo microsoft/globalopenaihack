@@ -4,8 +4,14 @@
              x:Class="CC.UI.Pages.SchedulingPage"
              xmlns:ctrl="clr-namespace:CC.UI.Controls"
              Title="SchedulingPage">
-    <Grid ColumnDefinitions="4*,*" RowDefinitions="Auto,*">
-        <ListView Grid.Row="1" Header="Appointments">
+    <VerticalStackLayout>
+        <ListView>
+            <ListView.Header>
+                <StackLayout BackgroundColor="{DynamicResource Primary}">
+                    <Label Text="Appointments" FontSize="Header"
+                           HorizontalOptions="Center" VerticalOptions="Center" />
+                </StackLayout>
+            </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -16,7 +22,5 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        
-        <ctrl:CopilotChat Grid.Column="1" />
-    </Grid>
+    </VerticalStackLayout>
 </ContentPage>

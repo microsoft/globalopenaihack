@@ -7,7 +7,7 @@
     xmlns:page="clr-namespace:CC.UI.Pages"
     xmlns:vm="clr-namespace:CC.UI.ViewModels" 
     xmlns:ctrl="clr-namespace:CC.UI.Controls"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Locked">
     <Shell.BindingContext>
         <vm:AppViewModel />
     </Shell.BindingContext>
@@ -31,7 +31,15 @@
             <MenuFlyoutItem Text="Change Theme" />
         </MenuBarItem>
     </Shell.MenuBarItems>
-
+    <Shell.FlyoutHeader>
+        <StackLayout BackgroundColor="{DynamicResource Primary}">
+            <Label Text="Copilot" FontSize="Header"
+                   HorizontalOptions="Center" VerticalOptions="Center" />
+        </StackLayout>
+    </Shell.FlyoutHeader>
+    <Shell.FlyoutContent>
+        <ctrl:CopilotChat />
+    </Shell.FlyoutContent>
     <TabBar>
         <ShellContent
             Title="Patients"
@@ -39,7 +47,7 @@
             Route="MainPage" />
 
         <ShellContent
-            Title="Scheduling"
+            Title="Schedule"
             ContentTemplate="{DataTemplate page:SchedulingPage}"
             Route="EncounterPage" />
     </TabBar>

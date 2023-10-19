@@ -9,11 +9,12 @@
     <ContentView.BindingContext>
         <vm:CopilotChatViewModel />
     </ContentView.BindingContext>
+    
     <Grid RowDefinitions="Auto,*,Auto,Auto">
         <Border StrokeThickness="2"
                 Stroke="#808080"
                 StrokeShape="RoundRectangle 8,8,8,8"
-                Padding="12">
+                Padding="12" Margin="5">
             <Border.Content>
                 <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
                     <Button x:Name="StartListenBtn" Text="Start Listening" 
@@ -35,7 +36,7 @@
             </Border.Content>
         </Border>
         <Label Text="{Binding RecognitionText}" 
-               Grid.Row="1"/>
+               Grid.Row="1" Margin="5"/>
         <!-- chat history to go in this listview -->
         <!--<ListView x:Name="ChatList" ItemsSource="{Binding ChatHistory}" 
                   SelectionMode="None" VerticalScrollBarVisibility="Always" 
@@ -61,7 +62,7 @@
             </ListView.ItemTemplate>
         </ListView>-->
         
-        <Grid ColumnDefinitions="3*,*" Grid.Row="2">
+        <Grid ColumnDefinitions="3*,*" Grid.Row="2" Margin="5">
             <Entry x:Name="ChatEntry" 
                    Placeholder="Enter chat here" 
                    SemanticProperties.Hint="Enter chat here" 
@@ -75,7 +76,7 @@
         </Grid>
         
         <Button x:Name="GenerateChatHistory" 
-                Grid.Row="3"
+                Grid.Row="3" Margin="5"
                 Text="Generate chat history" 
                 SemanticProperties.Hint="Generates chat history" 
                 Clicked="OnGenerateChatHistoryClicked" 

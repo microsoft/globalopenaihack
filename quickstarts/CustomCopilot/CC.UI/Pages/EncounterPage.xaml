@@ -8,84 +8,81 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add Encounter" IconImageSource="{FontImage Glyph='+', Color=White, Size=22}" />
     </ContentPage.ToolbarItems>
-    
-    <Grid ColumnDefinitions="4*,*">
-        <VerticalStackLayout Margin="50,0">
-            <toolkit:Expander>
-                <toolkit:Expander.Header>
-                    <StackLayout BackgroundColor="{DynamicResource Primary}">
-                        <Label Text="Visit Details" FontSize="Header" 
-                               HorizontalOptions="Center" VerticalOptions="Center" />
-                    </StackLayout>
-                </toolkit:Expander.Header>
-                <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="*,*,*">
-                    <Label Text="Visit Category" Margin="5" 
-                           HorizontalOptions="End" VerticalOptions="Center" />
-                    <Picker Grid.Column="1" Margin="5" >
-                        <Picker.ItemsSource>
-                            <x:Array Type="{x:Type x:String}">
-                                <x:String>New Patient</x:String>
-                            </x:Array>
-                        </Picker.ItemsSource>
-                    </Picker>
-                    <Label Text="Sensitivity" 
-                           Grid.Column="2" Margin="5" 
-                           HorizontalOptions="End" VerticalOptions="Center" />
-                    <Picker Grid.Column="3" Margin="5" >
-                        <Picker.ItemsSource>
-                            <x:Array Type="{x:Type x:String}">
-                                <x:String>Normal</x:String>
-                            </x:Array>
-                        </Picker.ItemsSource>
-                    </Picker>
-                    <Label Text="Date of Service" 
-                           Grid.Row="1"  Margin="5" 
-                           HorizontalOptions="End" VerticalOptions="Center" />
-                    <DatePicker Grid.Column="1" Grid.Row="1" Margin="5" />
-                    <Label Text="Onset/hosp. date" 
-                           Grid.Column="2" Grid.Row="1" Margin="5" 
-                           HorizontalOptions="End" VerticalOptions="Center" />
-                    <DatePicker Grid.Column="3" Grid.Row="1" Margin="5" />
-                    <Label Text="Facility" 
-                           Grid.Row="2" Margin="5" 
-                           HorizontalOptions="End" VerticalOptions="Center" />
-                    <Picker Grid.Column="1" Grid.Row="2" Margin="5">
-                        <Picker.ItemsSource>
-                            <x:Array Type="{x:Type x:String}">
-                                <x:String>Baxter Building</x:String>
-                            </x:Array>
-                        </Picker.ItemsSource>
-                    </Picker>
-                    <Label Text="Billing Facility" 
-                           Grid.Column="2" Grid.Row="2" Margin="5" 
-                           HorizontalOptions="End" VerticalOptions="Center" />
-                    <Picker Grid.Column="3" Grid.Row="2" Margin="5">
-                        <Picker.ItemsSource>
-                            <x:Array Type="{x:Type x:String}">
-                                <x:String>Baxter Building</x:String>
-                            </x:Array>
-                        </Picker.ItemsSource>
-                    </Picker>
-                </Grid>
-            </toolkit:Expander>
 
-            <toolkit:Expander>
-                <toolkit:Expander.Header>
-                    <StackLayout BackgroundColor="{DynamicResource Primary}">
-                        <Label Text="Reason for Visit" FontSize="Header" 
-                               HorizontalOptions="Center" VerticalOptions="Center" />
-                    </StackLayout>
-                </toolkit:Expander.Header>
-                <Grid ColumnDefinitions="3*,*">
-                    <Editor x:Name="EncounterNotes" Placeholder="Enter your notes" 
-                            HeightRequest="100" />
-                    <Button Text="Summarize transcript" 
-                            Clicked="OnSummarizeTranscriptClicked" 
-                            Grid.Column="1"/>
-                </Grid>
-            </toolkit:Expander>
-        </VerticalStackLayout>
-        
-        <ctrl:CopilotChat Grid.Column="1"/>
-    </Grid>
+    <VerticalStackLayout Margin="50,0">
+        <toolkit:Expander>
+            <toolkit:Expander.Header>
+                <StackLayout BackgroundColor="{DynamicResource Primary}">
+                    <Label Text="Visit Details" FontSize="Header" 
+                            HorizontalOptions="Center" VerticalOptions="Center" />
+                </StackLayout>
+            </toolkit:Expander.Header>
+            <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="*,*,*">
+                <Label Text="Visit Category" Margin="5" 
+                        HorizontalOptions="End" VerticalOptions="Center" />
+                <Picker Grid.Column="1" Margin="5" >
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>New Patient</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Label Text="Sensitivity" 
+                        Grid.Column="2" Margin="5" 
+                        HorizontalOptions="End" VerticalOptions="Center" />
+                <Picker Grid.Column="3" Margin="5" >
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Normal</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Label Text="Date of Service" 
+                        Grid.Row="1"  Margin="5" 
+                        HorizontalOptions="End" VerticalOptions="Center" />
+                <DatePicker Grid.Column="1" Grid.Row="1" Margin="5" />
+                <Label Text="Onset/hosp. date" 
+                        Grid.Column="2" Grid.Row="1" Margin="5" 
+                        HorizontalOptions="End" VerticalOptions="Center" />
+                <DatePicker Grid.Column="3" Grid.Row="1" Margin="5" />
+                <Label Text="Facility" 
+                        Grid.Row="2" Margin="5" 
+                        HorizontalOptions="End" VerticalOptions="Center" />
+                <Picker Grid.Column="1" Grid.Row="2" Margin="5">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Baxter Building</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Label Text="Billing Facility" 
+                        Grid.Column="2" Grid.Row="2" Margin="5" 
+                        HorizontalOptions="End" VerticalOptions="Center" />
+                <Picker Grid.Column="3" Grid.Row="2" Margin="5">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Baxter Building</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </Grid>
+        </toolkit:Expander>
+
+        <toolkit:Expander>
+            <toolkit:Expander.Header>
+                <StackLayout BackgroundColor="{DynamicResource Primary}">
+                    <Label Text="Reason for Visit" FontSize="Header" 
+                            HorizontalOptions="Center" VerticalOptions="Center" />
+                </StackLayout>
+            </toolkit:Expander.Header>
+            <Grid ColumnDefinitions="3*,*">
+                <Editor x:Name="EncounterNotes" Placeholder="Enter your notes" 
+                        HeightRequest="100" />
+                <Button Text="Summarize transcript" 
+                        Clicked="OnSummarizeTranscriptClicked" 
+                        Grid.Column="1"/>
+            </Grid>
+        </toolkit:Expander>
+    </VerticalStackLayout>
+
 </ContentPage>

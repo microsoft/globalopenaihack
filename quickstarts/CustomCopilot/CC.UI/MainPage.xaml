@@ -8,9 +8,7 @@
         <vm:MainViewModel />
     </ContentPage.BindingContext>
 
-    <Grid ColumnDefinitions="4*,*" RowDefinitions="Auto,*">
-        <ctrl:PatientList PatientSelected="PatientList_PatientSelected" Margin="50,10" />
-
-        <ctrl:CopilotChat Grid.Column="1" />
-    </Grid>
+    <VerticalStackLayout>
+        <ctrl:PatientList PatientSelected="PatientList_PatientSelected" />
+    </VerticalStackLayout>
 </ContentPage>
