@@ -2,45 +2,42 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CC.UI.Pages.EncounterPage"
-             xmlns:ctrl="clr-namespace:CC.UI.Controls"
+             xmlns:ctrl="clr-namespace:CC.UI.Controls" 
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="EncounterPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add Encounter" IconImageSource="{FontImage Glyph='+', Color=White, Size=22}" />
     </ContentPage.ToolbarItems>
     
     <Grid ColumnDefinitions="4*,*">
-        <Grid ColumnDefinitions="*,*">
-            <VerticalStackLayout Spacing="10" Margin="5">
-                <Editor x:Name="TextEditor"
-                Placeholder="Enter your note"
-                HeightRequest="100" />
-
-                <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
-                    <Button Text="Save" />
-
-                    <Button Grid.Column="1"
-                    Text="Delete" />
+        <VerticalStackLayout>
+            <toolkit:Expander>
+                <toolkit:Expander.Header>
+                    <Label Text="Visit Details" />
+                </toolkit:Expander.Header>
+                <Grid>
+                    <Label Text="Visit Category" />
+                    <Label Text="Sensitivity" />
+                    <Label Text="Date of Service" />
+                    <Label Text="Onset/hosp. date" />
+                    <Label Text="Facility" />
+                    <Label Text="Billing Facility" />
                 </Grid>
-            </VerticalStackLayout>
-            
-            <CollectionView Grid.Column="1"
-                        Margin="20" 
-                        SelectionMode="Single">
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
-                </CollectionView.ItemsLayout>
+            </toolkit:Expander>
 
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout>
-                            <Label FontSize="22" />
-                            <Label FontSize="14" TextColor="Silver" />
-                        </StackLayout>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </Grid>
-
+            <toolkit:Expander>
+                <toolkit:Expander.Header>
+                    <Label Text="Reason for Visit" />
+                </toolkit:Expander.Header>
+            </toolkit:Expander>
+            <Grid ColumnDefinitions="*,*">
+                <Label Text="Reason" />
+                <Editor Placeholder="Enter your notes"
+                    HeightRequest="100" />
+                <Button Text="Summarize transcript" />
+            </Grid>
+        </VerticalStackLayout>
+        
         <ctrl:CopilotChat Grid.Column="1"/>
     </Grid>
 </ContentPage>

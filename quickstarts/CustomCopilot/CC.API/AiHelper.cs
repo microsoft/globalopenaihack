@@ -41,7 +41,7 @@ namespace CC.API
 
         public async Task<string> GenerateFhirOfPatient(string characterName)
         {
-            ISKFunction generateFhir = _kernel.Functions.GetFunction("ComicBookPlugin", "GenerateFhir");
+            ISKFunction generateFhir = _kernel.Functions.GetFunction("ComicBookPlugin", "GenerateFhirPatients");
             KernelResult result2 = await _kernel.RunAsync(characterName, generateFhir);
             string? value = result2.GetValue<string>();
             if (value is null)
@@ -52,9 +52,10 @@ namespace CC.API
             int jsonLength = lastJsonCharacter - firstJsonCharacter;
             string justJson = value.Substring(firstJsonCharacter, jsonLength);
 
-            string filename = $"\\Data\\Patients\\{characterName}.json";
-            string filePath = $"C:\\src\\CC\\CC.API{filename}";
-            using (StreamWriter writetext = new(filePath))
+            string patientFilePath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "Patients", $"{characterName}.json");
+            //string filename = $"\\Data\\Patients\\{characterName}.json";
+            //string filePath = $"C:\\src\\CC\\CC.API{filename}";
+            using (StreamWriter writetext = new(patientFilePath))
             {
                 writetext.WriteLine(justJson);
             }
@@ -62,9 +63,27 @@ namespace CC.API
             return justJson;
         }
 
-        //public async Task<string> GenerateFhirEncounters(string characterName)
-        //{
-        //    ISKFunction generateEncounters = _kernel.Functions.GetFunction("ComicBookPlugin", "GenerateFhirEncounters");
-        //}
+        public async Task<string> GenerateFhirEncounters(string characterName)
+        {
+            ISKFunction generateEncounters = _kernel.Functions.GetFunction("ComicBookPlugin", "GenerateFhirEncounters");
+
+            KernelResult result2 = await _kernel.RunAsync(characterName, generateEncounters);
+            string? value = result2.GetValue<string>();
+            if (value is null)
+                throw new ApplicationException("No value returned from kernel.");
+
+            int firstJsonCharacter = value.IndexOf("```json\n") + 8;
+            int lastJsonCharacter = value.IndexOf("\n```\n");
+            int jsonLength = lastJsonCharacter - firstJsonCharacter;
+            string justJson = value.Substring(firstJsonCharacter, jsonLength);
+
+            string encounterFilePath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "Encounters", $"{characterName}01.json");
+            using (StreamWriter writetext = new(encounterFilePath))
+            {
+                writetext.WriteLine(justJson);
+            }
+
+            return justJson;
+        }
     }
 }

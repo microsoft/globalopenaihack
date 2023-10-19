@@ -1,0 +1,83 @@
+{
+  "resourceType": "Encounter",
+  "id": "encounter1",
+  "status": "finished",
+  "class": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code": "AMB",
+    "display": "ambulatory"
+  },
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0004",
+          "code": "EMER",
+          "display": "Emergency"
+        }
+      ],
+      "text": "Emergency Encounter"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/Wolverine",
+    "display": "Logan"
+  },
+  "participant": [
+    {
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+              "code": "ATND",
+              "display": "attender"
+            }
+          ],
+          "text": "Attender"
+        }
+      ],
+      "individual": {
+        "reference": "Practitioner/DrXavier",
+        "display": "Dr. Charles Xavier"
+      }
+    }
+  ],
+  "period": {
+    "start": "2022-01-01T00:00:00Z",
+    "end": "2022-01-01T01:00:00Z"
+  },
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "283385000",
+          "display": "Wound"
+        }
+      ],
+      "text": "Wound after battle"
+    }
+  ],
+  "hospitalization": {
+    "dischargeDisposition": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+          "code": "home",
+          "display": "Discharged to home"
+        }
+      ],
+      "text": "Discharged to home"
+    }
+  },
+  "location": [
+    {
+      "location": {
+        "reference": "Location/1",
+        "display": "X-Mansion"
+      },
+      "status": "completed"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "resourceType": "Encounter",
+  "id": "encounter1",
+  "status": "finished",
+  "class": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code": "AMB",
+    "display": "ambulatory"
+  },
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0004",
+          "code": "EMER",
+          "display": "Emergency"
+        }
+      ],
+      "text": "Emergency Encounter"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/Loki",
+    "display": "Loki Laufeyson"
+  },
+  "participant": [
+    {
+      "individual": {
+        "reference": "Practitioner/Thor",
+        "display": "Thor Odinson"
+      },
+      "type": [
+        {
+          "text": "Admitting"
+        }
+      ]
+    }
+  ],
+  "period": {
+    "start": "2022-01-01T00:00:00Z",
+    "end": "2022-01-01T01:00:00Z"
+  },
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "408512008",
+          "display": "Injury of head"
+        }
+      ],
+      "text": "Injury of head due to battle with Thor"
+    }
+  ],
+  "hospitalization": {
+    "dischargeDisposition": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+          "code": "home",
+          "display": "Discharged to home"
+        }
+      ],
+      "text": "Discharged to home"
+    }
+  },
+  "location": [
+    {
+      "location": {
+        "reference": "Location/1",
+        "display": "Asgard Royal Hospital"
+      },
+      "status": "completed"
+    }
+  ]
+}

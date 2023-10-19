@@ -9,8 +9,8 @@
 
   <ItemGroup>
     <None Remove="Plugins\ComicBookPlugin\GenerateFhirEncounters\skprompt.txt" />
-    <None Remove="Plugins\ComicBookPlugin\GenerateFhir\skprompt - Copy.txt" />
-    <None Remove="Plugins\ComicBookPlugin\GenerateFhir\skprompt.txt" />
+    <None Remove="Plugins\ComicBookPlugin\GenerateFhirPatients\skprompt - Copy.txt" />
+    <None Remove="Plugins\ComicBookPlugin\GenerateFhirPatients\skprompt.txt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,7 +20,7 @@
     <Content Include="Plugins\ComicBookPlugin\GetPopularCharacters\skprompt.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Plugins\ComicBookPlugin\GenerateFhir\skprompt.txt">
+    <Content Include="Plugins\ComicBookPlugin\GenerateFhirPatients\skprompt.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

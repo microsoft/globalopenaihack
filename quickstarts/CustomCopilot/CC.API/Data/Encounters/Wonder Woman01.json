@@ -1,0 +1,90 @@
+{
+  "resourceType": "Encounter",
+  "id": "encounter1",
+  "status": "finished",
+  "class": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code": "AMB",
+    "display": "ambulatory"
+  },
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0004",
+          "code": "EMER",
+          "display": "Emergency"
+        }
+      ],
+      "text": "Emergency Encounter"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/WonderWoman",
+    "display": "Diana Prince"
+  },
+  "participant": [
+    {
+      "individual": {
+        "reference": "Practitioner/SteveTrevor",
+        "display": "Steve Trevor"
+      }
+    }
+  ],
+  "period": {
+    "start": "2022-01-01T00:00:00Z",
+    "end": "2022-01-01T01:00:00Z"
+  },
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "39848009",
+          "display": "Wound"
+        }
+      ],
+      "text": "Wound from battle with Ares"
+    }
+  ],
+  "diagnosis": [
+    {
+      "condition": {
+        "reference": "Condition/battleWound",
+        "display": "Battle wound"
+      },
+      "role": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+            "code": "AD",
+            "display": "admission"
+          }
+        ],
+        "text": "Admission Diagnosis"
+      },
+      "rank": 1
+    }
+  ],
+  "hospitalization": {
+    "dischargeDisposition": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+          "code": "home",
+          "display": "Discharged to home"
+        }
+      ],
+      "text": "Discharged to home"
+    }
+  },
+  "location": [
+    {
+      "location": {
+        "reference": "Location/Themyscira",
+        "display": "Themyscira"
+      },
+      "status": "completed"
+    }
+  ]
+}

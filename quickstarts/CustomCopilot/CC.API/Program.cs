@@ -25,7 +25,8 @@ app.UseHttpsRedirection();
 RouteGroupBuilder patientApis = app.MapGroup("/patients");
 patientApis.MapGet("/", GetAllPatients);
 patientApis.MapGet("/{id}", GetPatientById);
-patientApis.MapPost("/generate", GeneratePatients);
+patientApis.MapPost("/generate/patients", GeneratePatients);
+patientApis.MapPost("/generate/encounters", GenerateEncounters);
 
 app.Run();
 
@@ -37,6 +38,19 @@ async Task<IResult> GeneratePatients()
     foreach (string character in characters)
     {
         await aiHelper.GenerateFhirOfPatient(character);
+    }
+
+    return TypedResults.Ok();
+}
+
+async Task<IResult> GenerateEncounters()
+{
+    AiHelper aiHelper = new(apiKey);
+    List<string> characters = await aiHelper.GeneratePatients();
+
+    foreach (string character in characters)
+    {
+        await aiHelper.GenerateFhirEncounters(character);
     }
 
     return TypedResults.Ok();

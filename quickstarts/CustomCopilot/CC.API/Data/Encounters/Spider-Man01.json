@@ -1,0 +1,90 @@
+{
+  "resourceType": "Encounter",
+  "id": "encounter1",
+  "status": "finished",
+  "class": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code": "AMB",
+    "display": "ambulatory"
+  },
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0004",
+          "code": "EMER",
+          "display": "Emergency"
+        }
+      ],
+      "text": "Emergency Encounter"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/spiderman",
+    "display": "Peter Parker (Spider-Man)"
+  },
+  "participant": [
+    {
+      "individual": {
+        "reference": "Practitioner/doctorstrange",
+        "display": "Dr. Stephen Strange"
+      }
+    }
+  ],
+  "period": {
+    "start": "2002-05-03T09:00:00Z",
+    "end": "2002-05-03T09:30:00Z"
+  },
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "283385000",
+          "display": "Stung by spider"
+        }
+      ],
+      "text": "Stung by a genetically modified spider"
+    }
+  ],
+  "diagnosis": [
+    {
+      "condition": {
+        "reference": "Condition/spiderbite",
+        "display": "Spider bite"
+      },
+      "role": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+            "code": "AD",
+            "display": "admission"
+          }
+        ],
+        "text": "Admission Diagnosis"
+      },
+      "rank": 1
+    }
+  ],
+  "hospitalization": {
+    "dischargeDisposition": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+          "code": "home",
+          "display": "Discharged to home"
+        }
+      ],
+      "text": "Discharged to home"
+    }
+  },
+  "location": [
+    {
+      "location": {
+        "reference": "Location/1",
+        "display": "New York City Hospital"
+      },
+      "status": "completed"
+    }
+  ]
+}

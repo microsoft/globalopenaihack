@@ -1,0 +1,81 @@
+{
+  "resourceType": "Encounter",
+  "id": "encounter1",
+  "status": "finished",
+  "class": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code": "AMB",
+    "display": "ambulatory"
+  },
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0004",
+          "code": "EMER",
+          "display": "Emergency"
+        }
+      ],
+      "text": "Emergency Visit"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/IronMan",
+    "display": "Stark, Anthony"
+  },
+  "participant": [
+    {
+      "individual": {
+        "reference": "Practitioner/DrStrange",
+        "display": "Strange, Stephen"
+      }
+    }
+  ],
+  "period": {
+    "start": "2022-01-01T00:00:00Z",
+    "end": "2022-01-01T01:00:00Z"
+  },
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "39848009",
+          "display": "Chest Pain"
+        }
+      ],
+      "text": "Chest Pain due to Arc Reactor malfunction"
+    }
+  ],
+  "diagnosis": [
+    {
+      "condition": {
+        "reference": "Condition/arcReactorMalfunction",
+        "display": "Arc Reactor Malfunction"
+      },
+      "role": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+            "code": "AD",
+            "display": "admission"
+          }
+        ],
+        "text": "Admission Diagnosis"
+      },
+      "rank": 1
+    }
+  ],
+  "hospitalization": {
+    "dischargeDisposition": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+          "code": "home",
+          "display": "Discharged to home"
+        }
+      ],
+      "text": "Discharged to home after Arc Reactor repair"
+    }
+  }
+}

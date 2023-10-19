@@ -1,0 +1,62 @@
+{
+  "resourceType": "Encounter",
+  "id": "encounter1",
+  "status": "finished",
+  "class": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code": "AMB",
+    "display": "ambulatory"
+  },
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0004",
+          "code": "EMER",
+          "display": "Emergency"
+        }
+      ],
+      "text": "Emergency encounter due to Kryptonite exposure"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/Superman",
+    "display": "Clark Kent"
+  },
+  "participant": [
+    {
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+              "code": "ATND",
+              "display": "attender"
+            }
+          ],
+          "text": "Attender"
+        }
+      ],
+      "individual": {
+        "reference": "Practitioner/Dr.EmilHamilton",
+        "display": "Dr. Emil Hamilton"
+      }
+    }
+  ],
+  "period": {
+    "start": "2022-01-01T00:00:00Z",
+    "end": "2022-01-01T01:00:00Z"
+  },
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "41917002",
+          "display": "Exposure to radiation (event)"
+        }
+      ],
+      "text": "Exposure to Kryptonite radiation"
+    }
+  ]
+}
