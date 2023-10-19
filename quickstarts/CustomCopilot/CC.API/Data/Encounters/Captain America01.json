@@ -1,0 +1,62 @@
+{
+  "resourceType": "Encounter",
+  "id": "encounter1",
+  "status": "finished",
+  "class": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code": "AMB",
+    "display": "ambulatory"
+  },
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0004",
+          "code": "EMER",
+          "display": "Emergency"
+        }
+      ],
+      "text": "Emergency Encounter"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/CaptainAmerica",
+    "display": "Steve Rogers"
+  },
+  "participant": [
+    {
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+              "code": "ATND",
+              "display": "attender"
+            }
+          ],
+          "text": "Attender"
+        }
+      ],
+      "individual": {
+        "reference": "Practitioner/DrStrange",
+        "display": "Dr. Stephen Strange"
+      }
+    }
+  ],
+  "period": {
+    "start": "1941-03-01T09:00:00Z",
+    "end": "1941-03-01T09:30:00Z"
+  },
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "283385000",
+          "display": "Battle injury"
+        }
+      ],
+      "text": "Injury from battle with Red Skull"
+    }
+  ]
+}

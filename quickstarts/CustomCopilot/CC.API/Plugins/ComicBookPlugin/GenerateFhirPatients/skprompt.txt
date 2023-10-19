@@ -1,0 +1,5 @@
+﻿generate a valid HL7 FHIR R4 Patient in JSON format.
+all required properties must be present: the resourcetype property should have value of "patient"
+include the character's secret identity as a human name, their weakness as an allergyintolerance entity, and their birth date as the date of their first appearance.
+
+generate a valid HL7 FHIR R4 patient for {{$input}}.

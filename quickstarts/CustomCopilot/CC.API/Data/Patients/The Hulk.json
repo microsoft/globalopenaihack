@@ -1,0 +1,74 @@
+{
+  "resourceType": "Patient",
+  "id": "hulk001",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Bruce Banner aka The Hulk</div>"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR",
+            "display": "Medical record number"
+          }
+        ],
+        "text": "Medical record number"
+      },
+      "system": "http://hospital.example.org",
+      "value": "hulk001",
+      "period": {
+        "start": "1962-05-01"
+      },
+      "assigner": {
+        "display": "Hospital Example"
+      }
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Banner",
+      "given": [
+        "Bruce"
+      ]
+    },
+    {
+      "use": "nickname",
+      "given": [
+        "Hulk"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1962-05-01",
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "type": "both",
+      "text": "Unknown"
+    }
+  ],
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "en",
+            "display": "English"
+          }
+        ]
+      },
+      "preferred": true
+    }
+  ],
+  "managingOrganization": {
+    "reference": "Organization/hospital-example"
+  }
+}

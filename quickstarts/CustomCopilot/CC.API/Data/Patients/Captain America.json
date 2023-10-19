@@ -1,0 +1,59 @@
+{
+  "resourceType": "Patient",
+  "id": "captain-america",
+  "text": {
+    "status": "generated",
+    "div": "<div><p>Captain America</p></div>"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR",
+            "display": "Medical record number"
+          }
+        ],
+        "text": "Captain America"
+      },
+      "system": "http://hospital.somewhere.org",
+      "value": "captain-america"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Rogers",
+      "given": [
+        "Steve"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1941-03-01",
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "type": "both",
+      "text": "New York, USA"
+    }
+  ],
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "en",
+            "display": "English"
+          }
+        ]
+      },
+      "preferred": true
+    }
+  ]
+}

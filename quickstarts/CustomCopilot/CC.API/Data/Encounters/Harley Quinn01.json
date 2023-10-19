@@ -1,0 +1,95 @@
+{
+  "resourceType": "Encounter",
+  "id": "encounter1",
+  "status": "finished",
+  "class": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code": "AMB",
+    "display": "ambulatory"
+  },
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0004",
+          "code": "EMER",
+          "display": "Emergency"
+        }
+      ],
+      "text": "Emergency"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/HarleyQuinn",
+    "display": "Harley Quinn"
+  },
+  "participant": [
+    {
+      "individual": {
+        "reference": "Practitioner/Batman",
+        "display": "Batman"
+      },
+      "type": [
+        {
+          "text": "Admitting"
+        }
+      ]
+    }
+  ],
+  "period": {
+    "start": "2022-01-01T00:00:00Z",
+    "end": "2022-01-01T01:00:00Z"
+  },
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "408512008",
+          "display": "Disturbance in behavior"
+        }
+      ],
+      "text": "Disturbance in behavior"
+    }
+  ],
+  "diagnosis": [
+    {
+      "condition": {
+        "reference": "Condition/mentalDisorder",
+        "display": "Mental Disorder"
+      },
+      "role": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+            "code": "AD",
+            "display": "admission"
+          }
+        ],
+        "text": "Admission diagnosis"
+      },
+      "rank": 1
+    }
+  ],
+  "hospitalization": {
+    "dischargeDisposition": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+          "code": "home",
+          "display": "Discharged to home"
+        }
+      ],
+      "text": "Discharged to home"
+    }
+  },
+  "location": [
+    {
+      "location": {
+        "reference": "Location/ArkhamAsylum",
+        "display": "Arkham Asylum"
+      },
+      "status": "completed"
+    }
+  ]
+}

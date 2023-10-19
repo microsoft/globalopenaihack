@@ -1,0 +1,80 @@
+{
+  "resourceType": "Patient",
+  "id": "aquaman",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Aquaman</div>"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR",
+            "display": "Medical record number"
+          }
+        ],
+        "text": "Aquaman"
+      },
+      "system": "http://hospital.somewhere.org",
+      "value": "123456789",
+      "period": {
+        "start": "1941-11-01"
+      },
+      "assigner": {
+        "display": "DC Comics"
+      }
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Curry",
+      "given": [
+        "Arthur"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1941-11-01",
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "type": "both",
+      "text": "Atlantis"
+    }
+  ],
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "en",
+            "display": "English"
+          }
+        ]
+      },
+      "preferred": true
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://example.org/fhir/StructureDefinition/allergyintolerance",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "300916003",
+            "display": "Dehydration"
+          }
+        ],
+        "text": "Dehydration"
+      }
+    }
+  ]
+}

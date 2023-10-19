@@ -1,0 +1,65 @@
+{
+  "resourceType": "Patient",
+  "id": "harley-quinn",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Harley Quinn</div>"
+  },
+  "identifier": [
+    {
+      "use": "official",
+      "system": "http://example.com/fhir/identifiers",
+      "value": "harley-quinn"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Quinzel",
+      "given": [
+        "Harleen",
+        "Frances"
+      ],
+      "prefix": [
+        "Dr."
+      ]
+    },
+    {
+      "use": "alias",
+      "text": "Harley Quinn"
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1992-09-11",
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "en",
+            "display": "English"
+          }
+        ]
+      },
+      "preferred": true
+    }
+  ],
+  "link": [
+    {
+      "other": {
+        "reference": "Patient/joker"
+      },
+      "type": "seealso"
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://example.com/fhir/StructureDefinition/allergyintolerance",
+      "valueReference": {
+        "reference": "AllergyIntolerance/harley-quinn-weakness"
+      }
+    }
+  ]
+}

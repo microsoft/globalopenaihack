@@ -1,0 +1,72 @@
+{
+  "resourceType": "Patient",
+  "id": "wolverine",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Wolverine</div>"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR",
+            "display": "Medical record number"
+          }
+        ],
+        "text": "Wolverine"
+      },
+      "system": "http://hospital.example.org",
+      "value": "wolverine"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Logan",
+      "given": [
+        "James",
+        "Howlett"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1974-10-01",
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "type": "both",
+      "text": "X-Mansion, 1407 Graymalkin Lane, Salem Center, Westchester County, New York, USA"
+    }
+  ],
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "en",
+            "display": "English"
+          }
+        ]
+      },
+      "preferred": true
+    }
+  ],
+  "managingOrganization": {
+    "reference": "Organization/1",
+    "display": "X-Men"
+  },
+  "link": [
+    {
+      "other": {
+        "reference": "Patient/wolverine"
+      },
+      "type": "seealso"
+    }
+  ]
+}

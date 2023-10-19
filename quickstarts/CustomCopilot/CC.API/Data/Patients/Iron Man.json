@@ -1,0 +1,143 @@
+{
+  "resourceType": "Patient",
+  "id": "ironman",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Iron Man</div>"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR",
+            "display": "Medical record number"
+          }
+        ],
+        "text": "Iron Man"
+      },
+      "system": "urn:oid:1.2.36.146.595.217.0.1",
+      "value": "12345",
+      "period": {
+        "start": "1963-03-01"
+      },
+      "assigner": {
+        "display": "Stark Industries"
+      }
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Stark",
+      "given": [
+        "Tony"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1963-03-01",
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "type": "both",
+      "text": "10880 Malibu Point, Malibu, California, USA",
+      "line": [
+        "10880 Malibu Point"
+      ],
+      "city": "Malibu",
+      "state": "California",
+      "postalCode": "90265",
+      "country": "USA"
+    }
+  ],
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "en-US",
+            "display": "English (United States)"
+          }
+        ]
+      },
+      "preferred": true
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/patient-nationality",
+      "extension": [
+        {
+          "url": "code",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "urn:iso:std:iso:3166",
+                "code": "US",
+                "display": "United States of America"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "link": [
+    {
+      "other": {
+        "reference": "Patient/ironman"
+      },
+      "type": "seealso"
+    }
+  ],
+  "contact": [
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+              "code": "N",
+              "display": "Natural"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "family": "Potts",
+        "given": [
+          "Pepper"
+        ]
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "1234567890",
+          "use": "work"
+        }
+      ],
+      "address": {
+        "use": "work",
+        "type": "both",
+        "text": "Stark Industries, Malibu, California, USA",
+        "line": [
+          "Stark Industries"
+        ],
+        "city": "Malibu",
+        "state": "California",
+        "postalCode": "90265",
+        "country": "USA"
+      },
+      "gender": "female",
+      "period": {
+        "start": "2008-05-02"
+      }
+    }
+  ]
+}

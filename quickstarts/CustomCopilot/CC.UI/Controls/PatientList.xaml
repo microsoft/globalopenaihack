@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CC.UI.Controls.PatientList">
+    <VerticalStackLayout>
+        <Button x:Name="GetPatientsBtn" Text="Refresh patients" 
+                SemanticProperties.Hint="Retrieves patients from data store" 
+                Clicked="OnGetPatientsClicked" HorizontalOptions="End" />
+
+        <ListView ItemsSource="{Binding Patients}" Grid.Row="1" 
+                  ItemSelected="ListView_ItemSelected" HorizontalOptions="StartAndExpand"
+                  VerticalScrollBarVisibility="Always">
+            <ListView.Header>
+                <StackLayout BackgroundColor="{DynamicResource Primary}">
+                    <Label Text="Patients" FontSize="Header"
+                           HorizontalOptions="Center" VerticalOptions="Center" />
+                </StackLayout>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Create new encounter" Clicked="OnNewEncounterClicked" />
+                            <MenuItem Text="View previous encounters" />
+                        </ViewCell.ContextActions>
+                        <Grid Padding="10" ColumnDefinitions="*,*,*,*,*">
+                            <Label Grid.Column="0" Text="{Binding Id}" IsVisible="false" />
+                            <Label Grid.Column="1" Text="{Binding Name[0].Given[0]}" />
+                            <Label Grid.Column="2" Text="{Binding Name[0].Family}" />
+                            <Label Grid.Column="3" Text="{Binding BirthDate}" />
+                            <Label Grid.Column="4" Text="{Binding Gender}" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </VerticalStackLayout>
+</ContentView>

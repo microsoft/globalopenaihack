@@ -1,0 +1,8 @@
+﻿create a pipe-delimited list of the most popular comic book superheroes or supervillains
+
+Example: 
+User: 10
+Bot: Superman|Batman|Spider-Man|Wonder Woman|Iron Man|Captain America|The Hulk|Thor|The Joker|Wolverine
+
+User: {{$input}}
+Bot: 

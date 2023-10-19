@@ -1,0 +1,83 @@
+{
+  "resourceType": "Encounter",
+  "id": "encounter1",
+  "status": "finished",
+  "class": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code": "AMB",
+    "display": "ambulatory"
+  },
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0004",
+          "code": "EMER",
+          "display": "Emergency"
+        }
+      ],
+      "text": "Emergency encounter due to injuries from battle"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/BlackPanther",
+    "display": "T'Challa"
+  },
+  "participant": [
+    {
+      "individual": {
+        "reference": "Practitioner/DrStrange",
+        "display": "Dr. Strange"
+      },
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+              "code": "ATND",
+              "display": "attender"
+            }
+          ],
+          "text": "Attending Physician"
+        }
+      ]
+    }
+  ],
+  "period": {
+    "start": "2022-01-01T10:30:00Z",
+    "end": "2022-01-01T11:30:00Z"
+  },
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "763005",
+          "display": "Injury of head"
+        }
+      ],
+      "text": "Injury from battle"
+    }
+  ],
+  "hospitalization": {
+    "dischargeDisposition": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+          "code": "home",
+          "display": "Discharged to home"
+        }
+      ],
+      "text": "Discharged to home after treatment"
+    }
+  },
+  "location": [
+    {
+      "location": {
+        "reference": "Location/1",
+        "display": "Wakanda Medical Center"
+      },
+      "status": "completed"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "resourceType": "Patient",
+  "id": "green-lantern",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Green Lantern</div>"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR",
+            "display": "Medical record number"
+          }
+        ],
+        "text": "Green Lantern"
+      },
+      "system": "http://example.org/patients",
+      "value": "green-lantern"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Jordan",
+      "given": [
+        "Hal"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1940-07-22",
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "en",
+            "display": "English"
+          }
+        ],
+        "text": "English"
+      },
+      "preferred": true
+    }
+  ],
+  "link": [
+    {
+      "other": {
+        "reference": "AllergyIntolerance/green-lantern-weakness"
+      },
+      "type": "seealso"
+    }
+  ]
+}

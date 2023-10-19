@@ -1,0 +1,76 @@
+{
+  "resourceType": "Encounter",
+  "id": "encounter1",
+  "status": "finished",
+  "class": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code": "AMB",
+    "display": "ambulatory"
+  },
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0004",
+          "code": "EMER",
+          "display": "Emergency"
+        }
+      ],
+      "text": "Emergency encounter due to transformation into Hulk"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/hulk",
+    "display": "Bruce Banner"
+  },
+  "participant": [
+    {
+      "individual": {
+        "reference": "Practitioner/tonyStark",
+        "display": "Tony Stark"
+      },
+      "type": [
+        {
+          "text": "Consultant"
+        }
+      ]
+    }
+  ],
+  "period": {
+    "start": "2022-01-01T00:00:00Z",
+    "end": "2022-01-01T01:00:00Z"
+  },
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "12345678",
+          "display": "Transformation into Hulk"
+        }
+      ],
+      "text": "Transformation into Hulk"
+    }
+  ],
+  "hospitalization": {
+    "dischargeDisposition": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+          "code": "home",
+          "display": "Discharged to home"
+        }
+      ],
+      "text": "Discharged to home"
+    }
+  },
+  "location": [
+    {
+      "location": {
+        "reference": "Location/1",
+        "display": "Stark Tower"
+      },
+      "status": "completed"
+    }
+  ]
+}

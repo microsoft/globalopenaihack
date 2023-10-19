@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "type": "completion",
+  "description": "Summarize a clinical encounter based on transcription and other captured data.",
+  "completion": {
+    "max_tokens": 1000,
+    "temperature": 0.0,
+    "top_p": 0.0,
+    "presence_penalty": 0.0,
+    "frequency_penalty": 0.0
+  },
+  "input": {
+    "parameters": [
+      {
+        "name": "transcription",
+        "description": "Transcription of conversation between participants in an encounter.",
+        "defaultValue": ""
+      }
+    ]
+  }
+}
