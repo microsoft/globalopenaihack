@@ -14,6 +14,8 @@ public partial class CopilotChat : ContentView
     public static readonly BindableProperty ChatHistoryProperty = 
         BindableProperty.Create(nameof(ChatHistory), typeof(ObservableCollection<ChatItem>), typeof(CopilotChat), new ObservableCollection<ChatItem>());
 
+    public event EventHandler<NewChatEventArgs> SubmitChat;
+
     public CopilotChat()
 	{
 		InitializeComponent();
@@ -94,5 +96,12 @@ public partial class CopilotChat : ContentView
 
     private void SubmitChatBtn_Clicked(object sender, EventArgs e)
     {
+        ChatItem chatItem = new()
+        {
+            Author = "You",
+            Text = ChatEntry.Text,
+            Timestamp = DateTime.Now
+        };
+        SubmitChat?.Invoke(this, new NewChatEventArgs() { ChatItem = chatItem });
     }
 }

@@ -38,7 +38,7 @@
         </StackLayout>
     </Shell.FlyoutHeader>
     <Shell.FlyoutContent>
-        <ctrl:CopilotChat />
+        <ctrl:CopilotChat SubmitChat="CopilotChat_SubmitChat" />
     </Shell.FlyoutContent>
     <TabBar>
         <ShellContent
