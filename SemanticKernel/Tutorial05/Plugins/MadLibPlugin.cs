@@ -1,27 +1,17 @@
 using Microsoft.SemanticKernel;
-using Microsoft.SemanticKernel.SkillDefinition;
 
 public class MadLibPlugin
 {
-    private IKernel _kernel;
-
-    public MadLibPlugin(IKernel kernel)
-    {
-        _kernel = kernel;
-    }
-
-    [SKFunction()]
-    public async Task<string> GenerateMadLib(
-        [SKName("randomNumbers")] string randomNumbers,
-        [SKName("madLibTheme")] string madLibTheme, 
-        SKContext context)
+    [KernelFunction()]
+    public async Task<string> GenerateMadLib(Kernel kernel, KernelArguments arguments)
     {
         // split the string representation of the random numbers into a list of integers
-        List<int> numbers = context["randomNumbers"].Split(',').Select(int.Parse).ToList();
+        ArgumentNullException.ThrowIfNull(arguments);
+        string numbersString = arguments["randomNumbers"] != null ? Convert.ToString(arguments["randomNumbers"])! : string.Empty;
+        List<int> numbers = numbersString.Split(',').Select(int.Parse).ToList();
 
         // define a few-shot function used to generate the mad lib with blanks for the number of word types
-        string functionDefinition =
-            """
+        string promptTemplate = """
             Use '{{$madLibTheme}}' as the theme to generate an amusing mad lib.
             
             EXAMPLES:
@@ -30,19 +20,17 @@ public class MadLibPlugin
 
             User: Generate a mad lib with blanks for 1 adjectives, 2 nouns, and 0 verbs. Use 'carnival' as the theme for the mad lib.
             MadLib: The ___(noun)___ Carnival was ___(adjective)___ again this year so they changed the name to the ___(noun)___ Carnival!
-            """ + 
+            """ +
             $"\n\nUser: Generate a mad lib with blanks for {numbers[0]} adjectives, {numbers[1]} nouns, and {numbers[2]} verbs.\nMadLib: ";
 
-        var functionInstance = _kernel.CreateSemanticFunction(functionDefinition);
+        KernelFunction function = kernel.CreateFunctionFromPrompt(promptTemplate);
 
         // call OpenAI to generate the specified number of adjectives, nouns, and verbs
-        var completion = await functionInstance.InvokeAsync(context);
+        FunctionResult result = await function.InvokeAsync(kernel, arguments);
 
         // set the madLib context variable to the generated mad lib
-        context["madLib"] = completion.Result;
+        arguments["madLib"] = result.GetValue<string>()!;
 
-        Console.WriteLine($"madLib: {context["madLib"]}");
-
-        return context["madLib"];
+        return arguments["madLib"] != null ? Convert.ToString(arguments["madLib"])! : string.Empty;
     }
 }

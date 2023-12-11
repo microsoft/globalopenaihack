@@ -1,4 +1,5 @@
-using Microsoft.SemanticKernel.SkillDefinition;
+using Microsoft.SemanticKernel;
+using System.ComponentModel;
 
 public class OldeEnglishPlugin
 {
@@ -7,7 +8,7 @@ public class OldeEnglishPlugin
     /// </summary>
     /// <param name="input">The word or phrase to translate</param>
     /// <returns>The translated word or phrase</returns>
-    [SKFunction()]
+    [KernelFunction(), Description("Given a word or phrase, translate it into olde English")]
     public string Translate(string input)
     {
         return $"Translate the following into olde English: {input}";
