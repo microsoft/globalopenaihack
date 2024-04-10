@@ -1,35 +1,28 @@
 using Microsoft.SemanticKernel;
-using Microsoft.SemanticKernel.Orchestration;
-using Microsoft.SemanticKernel.SkillDefinition;
+using Microsoft.SemanticKernel.Connectors.OpenAI;
 using System.ComponentModel;
 
 public class CelebratePlugin
 {
-    private readonly IKernel _kernel;
-
-    public CelebratePlugin(IKernel kernel)
-    {
-        _kernel = kernel;
-    }
-
-    [SKFunction]
+    [KernelFunction]
     [Description("Generates text to celebrate a given special occasion")]
-    public async Task<string> GenerateOccasionCard(string input)
+    public async Task<string> GenerateOccasionCard(Kernel kernel, string input)
     {
-        string functionDefinition = """
+        string promptTemplate = """
             generate text to celebrate a given special occasion: {{$input}}
             """;
-        ISKFunction function = _kernel.CreateSemanticFunction(functionDefinition);
-        SKContext context = await _kernel.RunAsync(input, function);
 
-        return context.Result;
+        KernelFunction function = kernel.CreateFunctionFromPrompt(promptTemplate);
+        FunctionResult result = await kernel.InvokeAsync(function, new(){{"input", input}});
+
+        return result.GetValue<string>()!;
     }
 
-    [SKFunction]
+    [KernelFunction]
     [Description("Generate five gift ideas to celebrate a given special occasion")]
-    public async Task<string> GenerateGiftIdeas(string input)
+    public async Task<string> GenerateGiftIdeas(Kernel kernel, string input)
     {
-        string functionDefinition = """
+        string promptTemplate = """
             create a bulleted list of gift ideas to celebrate a given special occasion.
             the list should always include five items.
 
@@ -45,10 +38,17 @@ public class CelebratePlugin
             USER: {{$input}}
             BOT: 
             """;
-        ISKFunction function = _kernel.CreateSemanticFunction(functionDefinition, maxTokens: 1_000);
-                
-        SKContext context = await _kernel.RunAsync(input, function);
+        
+        OpenAIPromptExecutionSettings executionSettings = new()
+        {
+            MaxTokens = 1_000,
+            Temperature = 0.0
+        };
 
-        return context.Result;
+        KernelFunction function = kernel.CreateFunctionFromPrompt(promptTemplate, executionSettings);
+
+        FunctionResult result = await kernel.InvokeAsync(function, new(){{"input", input}});
+
+        return result.GetValue<string>()!;
     }
 }

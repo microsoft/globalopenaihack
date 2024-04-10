@@ -16,7 +16,7 @@ public class OldeEnglishPlugin2
     KernelFunction toOldeEnglishFunction = kernel.CreateFunctionFromPrompt(functionDefinition);
 
     // call OpenAI API using the function and provided input
-    FunctionResult result = await toOldeEnglishFunction.InvokeAsync(kernel, new(input));
+    FunctionResult result = await toOldeEnglishFunction.InvokeAsync(kernel, new(){{"input", input}});
 
     return result.GetValue<string>()!;
 }

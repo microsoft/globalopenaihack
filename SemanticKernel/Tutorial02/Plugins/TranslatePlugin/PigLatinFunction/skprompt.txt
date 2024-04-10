@@ -1,1 +1,0 @@
-Translate the provided {{$input}} into pig latin.
